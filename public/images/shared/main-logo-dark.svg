@@ -1,0 +1,15 @@
+<svg width="198" height="44" viewBox="0 0 198 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="mainSrcGradDark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00F0FF" />
+      <stop offset="100%" stop-color="#0070F3" />
+    </linearGradient>
+  </defs>
+  <rect x="2" y="3" width="38" height="38" rx="12" fill="#141C26"/>
+  <rect x="3" y="4" width="36" height="36" rx="11" stroke="#223348" stroke-width="1.2"/>
+  <path d="M26 14H16C14.3431 14 13 15.3431 13 17C13 18.6569 14.3431 20 16 20H26C27.6569 20 29 21.3431 29 23C29 24.6569 27.6569 26 26 26H16" stroke="url(#mainSrcGradDark)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="26" cy="14" r="2" fill="#00F0FF"/>
+  <circle cx="16" cy="26" r="2" fill="#0070F3"/>
+  <text x="48" y="28" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="18" font-weight="800" letter-spacing="1.5" fill="#FFFFFF">SOURCE</text>
+  <text x="144" y="28" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="18" font-weight="900" letter-spacing="1" fill="url(#mainSrcGradDark)">365</text>
+</svg>
