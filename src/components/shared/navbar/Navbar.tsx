@@ -12,7 +12,7 @@ import mainLogo from '@public/images/shared/main-logo.svg';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
-import CapsuleButton from '@/components/ui/button/CapsuleButton';
+import { ButtonWithIcon } from '@/components/ui/button/ButtonWithIcon';
 import MobileMenu from '../mobile-menu/MobileMenu';
 import MobileMenuButton from '../mobile-menu/MobileMenuButton';
 import ServicesMenu from './ServicesMenu';
@@ -36,17 +36,17 @@ const Navbar = () => {
         <RevealAnimation direction="up" offset={100} delay={0.1} instant>
           <div
             className={cn(
-              'border-stroke-2 dark:border-stroke-6 bg-accent dark:bg-background-9 mx-auto flex items-center justify-between rounded-full border px-3 py-2 xl:px-4 xl:py-1.5 shadow-lg backdrop-blur-md',
+              'border-stroke-2 dark:border-stroke-6 bg-accent dark:bg-background-9 mx-auto flex items-center justify-between rounded-full border px-2.5 py-2.5 xl:py-0',
             )}>
             {/* Logo */}
             <div className="flex items-center justify-center">
               <Link href="/" className="inline-flex items-center">
                 <span className="sr-only">Source 365</span>
-                <figure className="hidden lg:block lg:max-w-[190px]">
+                <figure className="hidden lg:block lg:max-w-[198px]">
                   <Image src={mainLogo} alt="Source 365" className="block h-auto w-full dark:hidden" priority />
                   <Image src={mainLogoDark} alt="Source 365" className="hidden h-auto w-full dark:block" priority />
                 </figure>
-                <figure className="block max-w-[40px] lg:hidden">
+                <figure className="block max-w-[44px] lg:hidden">
                   <Image src={logoIcon} alt="Source 365" className="block h-auto w-full dark:hidden" priority />
                   <Image src={logoDark} alt="Source 365" className="hidden h-auto w-full dark:block" priority />
                 </figure>
@@ -55,15 +55,15 @@ const Navbar = () => {
 
             {/* Desktop Navigation */}
             <nav className="hidden items-center xl:flex">
-              <ul className="flex items-center space-x-1">
+              <ul className="flex items-center">
                 {/* IT Services Dropdown */}
                 <li
-                  className="group/item relative cursor-pointer py-2"
+                  className="group/item relative cursor-pointer py-2.5"
                   data-menu="services-mega-menu"
                   onMouseEnter={() => handleMenuHover('services-mega-menu')}>
                   <button
                     type="button"
-                    className="hover:border-stroke-2 dark:hover:border-stroke-7 text-tagline-1 text-secondary/70 hover:text-secondary dark:text-accent/70 dark:hover:text-accent flex cursor-pointer items-center gap-1 rounded-full border border-transparent px-3.5 py-1.5 font-medium transition-all duration-200">
+                    className="hover:border-stroke-2 dark:hover:border-stroke-7 text-tagline-1 text-secondary/60 hover:text-secondary dark:text-accent/60 dark:hover:text-accent flex cursor-pointer items-center gap-1 rounded-full border border-transparent px-4 py-2 font-normal transition-all duration-200">
                     <span>IT Services</span>
                     <span className="block origin-center translate-y-px transition-all duration-300 group-hover/item:rotate-180">
                       <svg
@@ -81,34 +81,34 @@ const Navbar = () => {
                 </li>
 
                 {/* Direct Links */}
-                <li className="relative cursor-pointer py-2">
+                <li className="relative cursor-pointer py-2.5">
                   <Link
                     href="/growth-program"
-                    className="hover:border-stroke-2 dark:hover:border-stroke-7 text-tagline-1 text-secondary/70 hover:text-secondary dark:text-accent/70 dark:hover:text-accent flex items-center gap-1 rounded-full border border-transparent px-3.5 py-1.5 font-medium transition-all duration-200">
+                    className="hover:border-stroke-2 dark:hover:border-stroke-7 text-tagline-1 text-secondary/60 hover:text-secondary dark:text-accent/60 dark:hover:text-accent flex items-center gap-1 rounded-full border border-transparent px-4 py-2 font-normal transition-all duration-200">
                     <span>Growth Program</span>
                   </Link>
                 </li>
 
-                <li className="relative cursor-pointer py-2">
+                <li className="relative cursor-pointer py-2.5">
                   <Link
                     href="/business"
-                    className="hover:border-stroke-2 dark:hover:border-stroke-7 text-tagline-1 text-secondary/70 hover:text-secondary dark:text-accent/70 dark:hover:text-accent flex items-center gap-1 rounded-full border border-transparent px-3.5 py-1.5 font-medium transition-all duration-200">
+                    className="hover:border-stroke-2 dark:hover:border-stroke-7 text-tagline-1 text-secondary/60 hover:text-secondary dark:text-accent/60 dark:hover:text-accent flex items-center gap-1 rounded-full border border-transparent px-4 py-2 font-normal transition-all duration-200">
                     <span>Business Solutions</span>
                   </Link>
                 </li>
 
-                <li className="relative cursor-pointer py-2">
+                <li className="relative cursor-pointer py-2.5">
                   <Link
                     href="/about"
-                    className="hover:border-stroke-2 dark:hover:border-stroke-7 text-tagline-1 text-secondary/70 hover:text-secondary dark:text-accent/70 dark:hover:text-accent flex items-center gap-1 rounded-full border border-transparent px-3.5 py-1.5 font-medium transition-all duration-200">
+                    className="hover:border-stroke-2 dark:hover:border-stroke-7 text-tagline-1 text-secondary/60 hover:text-secondary dark:text-accent/60 dark:hover:text-accent flex items-center gap-1 rounded-full border border-transparent px-4 py-2 font-normal transition-all duration-200">
                     <span>About Us</span>
                   </Link>
                 </li>
 
-                <li className="relative cursor-pointer py-2">
+                <li className="relative cursor-pointer py-2.5">
                   <Link
                     href="/faq"
-                    className="hover:border-stroke-2 dark:hover:border-stroke-7 text-tagline-1 text-secondary/70 hover:text-secondary dark:text-accent/70 dark:hover:text-accent flex items-center gap-1 rounded-full border border-transparent px-3.5 py-1.5 font-medium transition-all duration-200">
+                    className="hover:border-stroke-2 dark:hover:border-stroke-7 text-tagline-1 text-secondary/60 hover:text-secondary dark:text-accent/60 dark:hover:text-accent flex items-center gap-1 rounded-full border border-transparent px-4 py-2 font-normal transition-all duration-200">
                     <span>FAQ</span>
                   </Link>
                 </li>
@@ -117,9 +117,12 @@ const Navbar = () => {
 
             {/* Right Action Button */}
             <div className="hidden items-center justify-center xl:flex">
-              <CapsuleButton href="/contact-us" variant="purple" size="sm">
-                Contact Us
-              </CapsuleButton>
+              <ButtonWithIcon
+                href="/contact-us"
+                label="Contact Us"
+                className="h-10 text-xs ps-5 pe-12 hover:ps-12 hover:pe-5"
+                iconClassName="w-8 h-8 group-hover:right-[calc(100%-36px)]"
+              />
             </div>
 
             <MobileMenuButton />

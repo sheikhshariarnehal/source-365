@@ -14,6 +14,8 @@ All the varaiables are added here
   --color-primary-600: #7c31f6;
   --color-primary-700: #6d1fe2;
   --color-primary-800: #5a19be;
+  --color-background: #ffffff;
+  --color-foreground: #1a1a1c;
   --color-secondary: #1a1a1c;
   --color-accent: #fcfcfc;
   --color-split-text: #1a1a1c;
@@ -108,5 +110,7 @@ All the varaiables are added here
 }
 
 .dark {
+  --color-background: #13171e;
+  --color-foreground: #fcfcfd;
   --color-split-text: #fcfcfc;
 }

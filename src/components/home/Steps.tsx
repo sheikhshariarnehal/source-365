@@ -34,16 +34,18 @@ const Steps = () => {
   return (
     <RevealAnimation delay={0.1}>
       <section
-        className="pt-14 pb-14 md:pt-16 md:pb-16 lg:pt-[88px] lg:pb-[88px] xl:pt-[100px] xl:pb-[100px]"
+        className="py-16 md:py-20 lg:py-28 bg-white dark:bg-black"
         aria-label="Our Process">
-        <div className="main-container">
+        <div className="main-container px-4 sm:px-6 lg:px-8">
           {/* Header */}
-          <div className="mb-14 space-y-4 max-w-[650px] md:mb-16">
+          <div className="mb-12 md:mb-16 space-y-4 max-w-[650px]">
             <RevealAnimation delay={0.1}>
-              <span className="badge badge-primary-light">Our process</span>
+              <div className="mb-5">
+                <span className="badge badge-cyan">Our process</span>
+              </div>
             </RevealAnimation>
             <RevealAnimation delay={0.2}>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight text-secondary dark:text-accent leading-[1.15]">
+              <h2 className="text-secondary dark:text-accent font-medium max-w-[720px] mb-4">
                 From Idea to app store simplified
               </h2>
             </RevealAnimation>
@@ -53,22 +55,24 @@ const Steps = () => {
           <div className="grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-10 lg:gap-14">
             {processItems.map((process, index) => (
               <RevealAnimation key={process.id} delay={0.3 + index * 0.1}>
-                <div className="space-y-4" aria-label={`Step ${process.stepNumber}`}>
-                  {/* Cyan top indicator line */}
-                  <div className="h-[2px] w-full rounded-full bg-[#38d7d4] dark:bg-[#38d7d4]" />
+                <div className="group space-y-3.5" aria-label={`Step ${process.stepNumber}`}>
+                  {/* Subtle hairline top indicator */}
+                  <div className="relative h-px w-full bg-slate-200/80 dark:bg-white/10 overflow-hidden">
+                    <div className="absolute left-0 top-0 h-full w-12 bg-primary-500/60 dark:bg-primary-400/60 transition-all duration-500 group-hover:w-full" />
+                  </div>
 
                   {/* Step number */}
-                  <p className="text-sm font-semibold text-[#8b5cf6] dark:text-[#a78bfa]">
-                    {process.stepNumber}
-                  </p>
+                  <span className="inline-block text-[11.5px] font-mono tracking-widest text-secondary/40 dark:text-accent/40 uppercase pt-1">
+                    ({process.stepNumber})
+                  </span>
 
                   {/* Title */}
-                  <h3 className="text-xl md:text-2xl font-semibold text-secondary dark:text-accent">
+                  <h3 className="text-heading-5 text-secondary dark:text-accent font-semibold transition-colors group-hover:text-primary-600 dark:group-hover:text-primary-400">
                     {process.title}
                   </h3>
 
                   {/* Description */}
-                  <p className="text-sm md:text-base text-secondary/70 dark:text-accent/70 leading-relaxed">
+                  <p className="text-[14px] text-secondary/70 dark:text-accent/70 leading-relaxed">
                     {process.description}
                   </p>
                 </div>

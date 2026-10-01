@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 import RevealAnimation from '../animation/RevealAnimation';
+import { ButtonWithIcon } from '../ui/button/ButtonWithIcon';
 
 interface SquadMember {
   id: number;
@@ -13,6 +14,7 @@ interface SquadMember {
   slug: string;
   desktopPosition: string;
   defaultZ: number;
+  entranceDelay: number;
 }
 
 const squadMembers: SquadMember[] = [
@@ -20,51 +22,63 @@ const squadMembers: SquadMember[] = [
     id: 1,
     name: 'John Smith',
     role: 'CEO & Founder',
-    image: '/images/ns-avatar-4.png',
+    image: '/images/ns-img-374.jpg',
     slug: 'jamessmith',
-    desktopPosition: 'left-[2%] top-[85px]',
+    desktopPosition: 'left-[2%] top-[70px]',
     defaultZ: 10,
+    entranceDelay: 0,
   },
   {
     id: 2,
     name: 'John Lacker',
     role: 'Creative Director',
-    image: '/images/ns-avatar-5.png',
+    image: '/images/ns-img-381.jpg',
     slug: 'davidbrown',
-    desktopPosition: 'left-[19%] top-[205px]',
+    desktopPosition: 'left-[19%] top-[190px]',
     defaultZ: 25,
+    entranceDelay: 80,
   },
   {
     id: 3,
     name: 'William Finley',
     role: 'Lead Designer',
-    image: '/images/ns-avatar-6.png',
+    image: '/images/ns-img-382.jpg',
     slug: 'cody-fisher',
-    desktopPosition: 'left-[38%] top-[15px]',
+    desktopPosition: 'left-[38%] top-[10px]',
     defaultZ: 10,
+    entranceDelay: 160,
   },
   {
     id: 4,
     name: 'Micheal Jordan',
     role: 'Account Director',
-    image: '/images/ns-avatar-7.png',
+    image: '/images/ns-img-383.jpg',
     slug: 'michaelwilliams',
-    desktopPosition: 'left-[53%] top-[245px]',
+    desktopPosition: 'left-[53%] top-[225px]',
     defaultZ: 25,
+    entranceDelay: 240,
   },
   {
     id: 5,
     name: 'Jack Lavis',
     role: 'Senior Developer',
-    image: '/images/ns-avatar-8.png',
+    image: '/images/ns-img-398.png',
     slug: 'robertjohnson',
-    desktopPosition: 'left-[71%] top-[125px]',
+    desktopPosition: 'left-[71%] top-[110px]',
     defaultZ: 10,
+    entranceDelay: 320,
   },
 ];
 
+const XIcon = () => (
+  <svg width={10} height={10} viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 23.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+  </svg>
+);
+
 const Squad = () => {
   const [hoveredId, setHoveredId] = useState<number | null>(null);
+  const anyHovered = hoveredId !== null;
 
   return (
     <RevealAnimation delay={0.1}>
@@ -74,135 +88,144 @@ const Squad = () => {
         <div className="main-container px-4 sm:px-6 lg:px-8">
           {/* Header */}
           <div className="mb-12 md:mb-16 flex flex-col items-center text-center">
-            {/* Badge */}
             <RevealAnimation delay={0.1}>
-              <div className="flex items-center gap-3 mb-4">
-                <span className="h-px w-8 bg-stroke-3 dark:bg-stroke-6" />
-                <span className="badge badge-primary-light inline-flex items-center gap-1.5 uppercase font-semibold text-xs tracking-wider">
-                  <svg width={14} height={14} viewBox="0 0 24 24" fill="currentColor" className="text-primary-500">
-                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                  </svg>
-                  Squad
-                </span>
-                <span className="h-px w-8 bg-stroke-3 dark:bg-stroke-6" />
+              <div className="mb-5">
+                <span className="badge badge-cyan">Squad</span>
               </div>
             </RevealAnimation>
 
-            {/* Title */}
             <RevealAnimation delay={0.2}>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight text-secondary dark:text-accent max-w-[720px] mb-4">
+              <h2 className="text-secondary dark:text-accent font-medium max-w-[720px] mb-4">
                 The people who make it happen
               </h2>
             </RevealAnimation>
 
-            {/* Subtitle */}
             <RevealAnimation delay={0.3}>
-              <p className="text-base text-secondary/70 dark:text-accent/70 max-w-[620px] leading-relaxed mb-7">
-                Each member of our team brings deep expertise and a shared focus— building solutions that are not only beautiful but built to perform.
+              <p className="max-w-[620px] text-secondary/70 dark:text-accent/70 leading-relaxed mb-7">
+                Each member of our team brings deep expertise and a shared focus — building solutions that are not
+                only beautiful but built to perform.
               </p>
             </RevealAnimation>
 
-            {/* View All Members Button */}
             <RevealAnimation delay={0.4}>
-              <Link
-                href="/team"
-                className="group inline-flex items-center gap-2.5 rounded-full border border-stroke-3 dark:border-stroke-6 bg-white dark:bg-background-7 hover:bg-background-1 dark:hover:bg-background-8 px-6 py-2.5 text-sm font-semibold text-secondary dark:text-accent transition-all shadow-sm hover:shadow-md">
-                <span>View All Members</span>
-                <span className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
-                  ↗
-                </span>
-              </Link>
+              <ButtonWithIcon href="/team" label="View All Members" />
             </RevealAnimation>
           </div>
 
-          {/* Desktop Overlapping Staggered Composition (>= md) */}
-          <div className="hidden md:block relative mx-auto w-full max-w-[1140px] h-[640px] lg:h-[680px]">
+          {/* ── Desktop: Overlapping spatial composition ── */}
+          <div className="hidden md:block relative mx-auto w-full max-w-[1200px] h-[680px] lg:h-[720px]">
             {squadMembers.map((member) => {
-              const isHovered = hoveredId === member.id;
-              const isAnyHovered = hoveredId !== null;
-              const isOther = isAnyHovered && !isHovered;
+              const isActive = hoveredId === member.id;
+              const isDimmed = anyHovered && !isActive;
+
+              /* All motion-critical values as inline styles so the browser
+                 interpolates them in a single, unambiguous transition. */
+              const cardStyle: React.CSSProperties = {
+                zIndex: isActive ? 60 : member.defaultZ,
+                transform: isActive
+                  ? 'translateY(-10px) scale(1.018)'
+                  : isDimmed
+                    ? 'translateY(0px) scale(0.988)'
+                    : 'translateY(0px) scale(1)',
+                filter: isDimmed ? 'blur(1.5px)' : 'blur(0px)',
+                opacity: isDimmed ? 0.5 : 1,
+                transition:
+                  'transform 600ms cubic-bezier(0.25, 0.46, 0.45, 0.94), filter 500ms ease, opacity 500ms ease',
+                willChange: 'transform, filter, opacity',
+              };
+
+              const photoStyle: React.CSSProperties = {
+                transform: isActive ? 'scale(1.04)' : 'scale(1)',
+                transition: 'transform 700ms cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+              };
+
+              const xBtnStyle: React.CSSProperties = {
+                transform: isActive ? 'scale(1.12)' : 'scale(1)',
+                transition: 'transform 300ms cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+              };
 
               return (
                 <div
                   key={member.id}
                   onMouseEnter={() => setHoveredId(member.id)}
                   onMouseLeave={() => setHoveredId(null)}
-                  style={{ zIndex: isHovered ? 60 : member.defaultZ }}
-                  className={`absolute w-[250px] lg:w-[275px] transition-all duration-500 ease-out cursor-pointer ${member.desktopPosition}`}>
-                  <div
-                    className={`rounded-2xl bg-white dark:bg-background-7 p-2.5 pb-4 shadow-xl transition-all duration-500 border border-black/5 dark:border-white/5 ${
-                      isHovered
-                        ? 'scale-[1.08] shadow-2xl filter blur-0 opacity-100 ring-4 ring-white dark:ring-background-7'
-                        : isOther
-                        ? 'filter blur-[5px] opacity-40 scale-[0.96]'
-                        : 'filter blur-0 opacity-100 scale-100'
-                    }`}>
-                    {/* Member Photo */}
-                    <div className="relative w-full h-[230px] lg:h-[250px] rounded-xl bg-background-3 dark:bg-background-8 overflow-hidden">
-                      <Image
-                        src={member.image}
-                        alt={`${member.name} - ${member.role}`}
-                        fill
-                        className="object-cover transition-transform duration-700 hover:scale-105"
-                        sizes="300px"
-                      />
-                    </div>
-
-                    {/* Card Info Bar */}
-                    <div className="pt-3 px-1.5 flex items-center justify-between">
-                      <div>
-                        <h4 className="text-sm sm:text-base font-bold text-secondary dark:text-accent leading-snug">
-                          {member.name}
-                        </h4>
-                        <p className="text-xs text-secondary/60 dark:text-accent/60 mt-0.5">
-                          {member.role}
-                        </p>
+                  style={cardStyle}
+                  className={`absolute w-[295px] lg:w-[320px] cursor-pointer ${member.desktopPosition}`}>
+                  <Link href={`/team/${member.slug}`} tabIndex={0}>
+                    <div
+                      className={`rounded-2xl bg-white dark:bg-[#11141c] p-2.5 pb-3.5 border transition-[box-shadow,border-color] duration-300 ${
+                        isActive
+                          ? 'border-slate-300/80 dark:border-white/20 shadow-[0_24px_56px_rgba(0,0,0,0.12),0_4px_16px_rgba(0,0,0,0.06)] dark:shadow-[0_24px_56px_rgba(0,0,0,0.5)]'
+                          : 'border-slate-200/60 dark:border-white/[0.06] shadow-[0_4px_16px_rgba(0,0,0,0.03)] dark:shadow-[0_4px_16px_rgba(0,0,0,0.25)]'
+                      }`}>
+                      {/* Photo — zooms on its own timeline */}
+                      <div className="relative w-full h-[270px] lg:h-[295px] rounded-xl bg-background-3 dark:bg-background-8 overflow-hidden">
+                        <Image
+                          src={member.image}
+                          alt={`${member.name}, ${member.role} at Source 365`}
+                          fill
+                          style={photoStyle}
+                          className="object-cover"
+                          sizes="300px"
+                        />
                       </div>
 
-                      {/* Social Icon Button */}
-                      <div className="size-7 rounded-full bg-background-2 dark:bg-background-6 flex items-center justify-center text-secondary/70 dark:text-accent/70 hover:bg-[#8b5cf6] hover:text-white transition-colors">
-                        <svg width={11} height={11} viewBox="0 0 24 24" fill="currentColor">
-                          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 23.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-                        </svg>
+                      {/* Info bar */}
+                      <div className="pt-3 px-1.5 flex items-center justify-between">
+                        <div>
+                          <h4 className="text-[14.5px] font-semibold text-secondary/90 dark:text-accent/90 leading-snug">
+                            {member.name}
+                          </h4>
+                          <p className="text-[12px] text-secondary/60 dark:text-accent/60 mt-0.5">{member.role}</p>
+                        </div>
+
+                        {/* X / social micro-button — spring pop */}
+                        <div
+                          style={xBtnStyle}
+                          className={`size-6.5 rounded-full flex items-center justify-center transition-[background,color] duration-150 ${
+                            isActive
+                              ? 'bg-secondary dark:bg-white text-white dark:text-secondary'
+                              : 'bg-slate-100 dark:bg-white/[0.05] text-secondary/50 dark:text-accent/50 hover:bg-secondary hover:text-white dark:hover:bg-white dark:hover:text-secondary'
+                          }`}>
+                          <XIcon />
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  </Link>
                 </div>
               );
             })}
           </div>
 
-          {/* Mobile Staggered Cards View (< md) */}
-          <div className="md:hidden grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4 pb-8">
-            {squadMembers.map((member) => (
-              <div
-                key={member.id}
-                className="rounded-2xl bg-white dark:bg-background-7 p-2.5 pb-4 shadow-lg border border-black/5 dark:border-white/5">
-                <div className="relative w-full h-[240px] rounded-xl bg-background-3 dark:bg-background-8 overflow-hidden">
-                  <Image
-                    src={member.image}
-                    alt={`${member.name} - ${member.role}`}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 640px) 100vw, 50vw"
-                  />
-                </div>
-                <div className="pt-3 px-1.5 flex items-center justify-between">
-                  <div>
-                    <h4 className="text-sm font-bold text-secondary dark:text-accent leading-snug">
-                      {member.name}
-                    </h4>
-                    <p className="text-xs text-secondary/60 dark:text-accent/60 mt-0.5">
-                      {member.role}
-                    </p>
+          {/* ── Mobile: simple grid with entrance stagger ── */}
+          <div className="md:hidden grid grid-cols-1 sm:grid-cols-2 gap-5 pt-4 pb-8">
+            {squadMembers.map((member, i) => (
+              <RevealAnimation key={member.id} delay={0.1 + i * 0.07}>
+                <Link href={`/team/${member.slug}`}>
+                  <div className="rounded-2xl bg-white dark:bg-[#11141c] p-2.5 pb-3.5 border border-slate-200/60 dark:border-white/[0.06] shadow-[0_4px_16px_rgba(0,0,0,0.03)] transition-[transform,box-shadow] duration-200 hover:-translate-y-1 hover:shadow-[0_8px_24px_rgba(0,0,0,0.07)]">
+                    <div className="relative w-full h-[230px] rounded-xl bg-background-3 dark:bg-background-8 overflow-hidden">
+                      <Image
+                        src={member.image}
+                        alt={`${member.name}, ${member.role} at Source 365`}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 640px) 100vw, 50vw"
+                      />
+                    </div>
+                    <div className="pt-3 px-1.5 flex items-center justify-between">
+                      <div>
+                        <h4 className="text-[14.5px] font-semibold text-secondary/90 dark:text-accent/90 leading-snug">
+                          {member.name}
+                        </h4>
+                        <p className="text-[12px] text-secondary/60 dark:text-accent/60 mt-0.5">{member.role}</p>
+                      </div>
+                      <div className="size-6.5 rounded-full bg-slate-100 dark:bg-white/[0.05] flex items-center justify-center text-secondary/60 dark:text-accent/60">
+                        <XIcon />
+                      </div>
+                    </div>
                   </div>
-                  <div className="size-7 rounded-full bg-background-2 dark:bg-background-6 flex items-center justify-center text-secondary/70 dark:text-accent/70">
-                    <svg width={11} height={11} viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 23.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-                    </svg>
-                  </div>
-                </div>
-              </div>
+                </Link>
+              </RevealAnimation>
             ))}
           </div>
         </div>

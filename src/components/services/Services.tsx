@@ -1,7 +1,7 @@
 import { IService } from '@/interface';
 import getMarkDownData from '@/utils/getMarkDownData';
 import RevealAnimation from '../animation/RevealAnimation';
-import LinkButton from '../ui/button/LinkButton';
+import { ButtonWithIcon } from '../ui/button/ButtonWithIcon';
 
 const Services = () => {
   const servicesData = getMarkDownData<IService & { [key: string]: unknown }>('src/data/services');
@@ -38,12 +38,13 @@ const Services = () => {
                     <h3 className="text-heading-5 line-clamp-1">{service.title}</h3>
                     <p className="mx-auto line-clamp-3 max-w-[361px]">{service.description}</p>
                   </div>
-                  <div>
-                    <LinkButton
+                  <div className="flex justify-center">
+                    <ButtonWithIcon
                       href={`/services/${service.slug}`}
-                      className="btn btn-white dark:btn-transparent dark:hover:btn-accent hover:btn-secondary btn-md">
-                      Read more
-                    </LinkButton>
+                      label="Read more"
+                      className="h-10 text-xs ps-5 pe-12 hover:ps-12 hover:pe-5"
+                      iconClassName="w-8 h-8 group-hover:right-[calc(100%-36px)]"
+                    />
                   </div>
                 </div>
               </div>

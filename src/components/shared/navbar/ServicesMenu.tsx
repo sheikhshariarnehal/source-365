@@ -1,66 +1,79 @@
 'use client';
 
+import React from 'react';
 import { cn } from '@/utils/cn';
 import Link from 'next/link';
+import {
+  Zap,
+  TrendingUp,
+  Globe,
+  Smartphone,
+  Search,
+  ShieldCheck,
+  Activity,
+  Palette,
+  ArrowRight,
+  Sparkles,
+} from 'lucide-react';
 
 interface ServiceItem {
   title: string;
   desc: string;
   href: string;
   badge?: string;
-  iconSvg: string;
+  icon: React.ComponentType<{ className?: string; size?: number; strokeWidth?: number }>;
 }
 
 const servicesList: ServiceItem[] = [
   {
-    title: 'Facebook Boosting Service',
-    desc: 'Targeted reach, audience optimization & ROI boost',
+    title: 'Facebook Boosting',
+    desc: 'Paid campaigns, audience targeting & ROI scaling',
     href: '/services#boosting',
-    iconSvg: 'M13 10V3L4 14h7v7l9-11h-7z',
+    icon: Zap,
   },
   {
     title: 'Growth Program',
-    desc: 'End-to-end branding, calendar & Key Account Manager',
+    desc: 'Full-funnel branding & dedicated growth management',
     href: '/growth-program',
     badge: 'Popular',
-    iconSvg: 'M16 6l4 14H4L8 6h8zm-4 4v6m-3-3h6',
+    icon: TrendingUp,
   },
   {
     title: 'Web Development',
-    desc: 'Modern, high-speed responsive custom web solutions',
+    desc: 'Fast, responsive custom web applications & portals',
     href: '/services#web-development',
-    iconSvg: 'M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z',
+    icon: Globe,
   },
   {
     title: 'App Development',
-    desc: 'Tailored iOS & Android mobile application engineering',
+    desc: 'Native iOS & Android mobile product engineering',
     href: '/services#app-development',
-    iconSvg: 'M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z',
+    icon: Smartphone,
   },
   {
-    title: 'SEO (Search Optimization)',
-    desc: 'Keyword ranking, technical audits & search visibility',
+    title: 'SEO & Search Visibility',
+    desc: 'Technical site audits, backlinks & top rankings',
     href: '/services#seo',
-    iconSvg: 'M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z',
+    icon: Search,
   },
   {
-    title: 'SQA (Software QA)',
-    desc: 'Rigorous automated and manual software reliability testing',
+    title: 'SQA & Software QA',
+    desc: 'Automated test pipelines & software reliability',
     href: '/services#sqa',
-    iconSvg: 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z',
+    icon: ShieldCheck,
   },
   {
     title: 'Server-Side Tracking',
-    desc: 'Accurate event attribution & conversion measurement',
+    desc: 'Precision CAPI attribution & conversion telemetry',
     href: '/services#tracking',
     badge: 'Advanced',
-    iconSvg: 'M5 12h14M12 5l7 7-7 7',
+    icon: Activity,
   },
   {
-    title: 'Graphics Design',
-    desc: 'High-impact creative branding and social marketing assets',
+    title: 'Graphics & Brand Design',
+    desc: 'Visual identities, UI design & marketing creatives',
     href: '/services#graphics',
-    iconSvg: 'M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z',
+    icon: Palette,
   },
 ];
 
@@ -75,77 +88,97 @@ export default function ServicesMenu({
 
   return (
     <div>
+      {/* Invisible hover bridge */}
       <div
         className={cn(
-          'dropdown-menu-bridge pointer-events-none absolute top-full left-1/2 z-40 h-3 w-full min-w-[760px] -translate-x-1/2 bg-transparent',
+          'dropdown-menu-bridge pointer-events-none absolute top-full left-1/2 z-40 h-4 w-full min-w-[760px] -translate-x-1/2 bg-transparent',
           menuDropdownId === 'services-mega-menu' ? '!pointer-events-auto opacity-100' : 'pointer-events-none opacity-0',
         )}
       />
+
+      {/* Mega Menu Dropdown */}
       <div
         id="services-mega-menu"
         className={cn(
-          'dropdown-menu dark:bg-background-8 border-stroke-1 dark:border-background-7 pointer-events-none absolute top-full left-1/2 z-50 mt-2 w-full -translate-x-1/2 rounded-[24px] border bg-white p-6 shadow-2xl opacity-0 transition-all duration-300 md:w-[760px]',
+          'dropdown-menu pointer-events-none absolute top-full left-1/2 z-50 mt-2 w-[740px] -translate-x-1/2 rounded-2xl border border-stroke-1/80 bg-white/98 p-5 shadow-[0_16px_40px_rgba(0,0,0,0.08)] backdrop-blur-xl transition-all duration-300 dark:border-stroke-6/80 dark:bg-[#0f131a]/98 dark:shadow-[0_20px_50px_rgba(0,0,0,0.45)] opacity-0',
           menuDropdownId === 'services-mega-menu'
             ? '!pointer-events-auto translate-y-0 opacity-100'
-            : 'pointer-events-none translate-y-2.5 opacity-0',
+            : 'pointer-events-none translate-y-2 opacity-0',
         )}>
-        <div className="mb-4 flex items-center justify-between border-b border-stroke-1 dark:border-stroke-6 pb-3">
-          <span className="text-xs font-semibold uppercase tracking-wider text-secondary/60 dark:text-accent/60">
-            Source 365 Professional IT Services
+        {/* Header strip */}
+        <div className="mb-3 flex items-center justify-between border-b border-stroke-1/60 pb-2.5 dark:border-stroke-6/60">
+          <span className="text-[11px] font-medium tracking-wide text-secondary/45 uppercase dark:text-accent/40">
+            Services & Capabilities
           </span>
           <Link
             href="/services"
             onClick={handleClose}
-            className="text-xs font-medium text-primary-500 hover:underline">
-            View All Services →
+            className="group inline-flex items-center gap-1 text-xs font-medium text-secondary/70 transition-colors hover:text-primary-600 dark:text-accent/70 dark:hover:text-primary-400">
+            <span>View all services</span>
+            <ArrowRight size={12} className="transition-transform duration-200 group-hover:translate-x-0.5" />
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-          {servicesList.map((service) => (
-            <Link
-              key={service.title}
-              href={service.href}
-              onClick={handleClose}
-              className="group flex items-start gap-3 rounded-xl p-3 transition-colors hover:bg-background-2 dark:hover:bg-background-6">
-              <div className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-primary-500/10 text-primary-500 transition-colors group-hover:bg-primary-500 group-hover:text-white">
-                <svg className="size-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d={service.iconSvg} />
-                </svg>
-              </div>
-              <div>
-                <div className="flex items-center gap-2">
-                  <h4 className="text-sm font-medium text-secondary dark:text-accent group-hover:text-primary-500 transition-colors">
-                    {service.title}
-                  </h4>
-                  {service.badge && (
-                    <span className="rounded-full bg-cyan-500/10 px-2 py-0.5 text-[10px] font-semibold text-cyan-600 dark:text-cyan-400">
-                      {service.badge}
-                    </span>
-                  )}
+        {/* 2-Column Grid */}
+        <div className="grid grid-cols-2 gap-1.5">
+          {servicesList.map((service) => {
+            const Icon = service.icon;
+            return (
+              <Link
+                key={service.title}
+                href={service.href}
+                onClick={handleClose}
+                className="group flex items-center gap-3 rounded-xl p-2.5 transition-colors duration-150 hover:bg-black/[0.025] dark:hover:bg-white/[0.03]">
+                <div className="flex size-9.5 shrink-0 items-center justify-center rounded-[12px] border border-slate-200/80 bg-white text-secondary/75 shadow-[0_1px_2px_rgba(0,0,0,0.02)] transition-colors duration-200 group-hover:border-slate-300 group-hover:text-secondary dark:border-white/10 dark:bg-white/[0.03] dark:text-accent/75 dark:group-hover:border-white/20 dark:group-hover:text-accent">
+                  <Icon size={17} strokeWidth={1.75} />
                 </div>
-                <p className="mt-0.5 text-xs text-secondary/60 dark:text-accent/60 line-clamp-1">
-                  {service.desc}
-                </p>
-              </div>
-            </Link>
-          ))}
+                <div className="min-w-0 flex-1">
+                  <div className="flex items-center gap-2">
+                    <span className="truncate text-[13.5px] font-medium text-secondary/90 transition-colors group-hover:text-primary-600 dark:text-accent/90 dark:group-hover:text-primary-400">
+                      {service.title}
+                    </span>
+                    {service.badge && (
+                      <span
+                        className={cn(
+                          'rounded-md px-1.5 py-0.5 text-[9.5px] font-medium leading-none',
+                          service.badge === 'Popular'
+                            ? 'bg-emerald-500/[0.08] text-emerald-700/90 dark:bg-emerald-500/15 dark:text-emerald-300'
+                            : 'bg-primary-500/[0.08] text-primary-700/90 dark:bg-primary-500/15 dark:text-primary-300',
+                        )}>
+                        {service.badge}
+                      </span>
+                    )}
+                  </div>
+                  <p className="mt-0.5 truncate text-[11.5px] text-secondary/50 dark:text-accent/50">
+                    {service.desc}
+                  </p>
+                </div>
+              </Link>
+            );
+          })}
         </div>
 
-        <div className="mt-4 rounded-xl bg-gradient-to-r from-blue-600/10 via-cyan-500/10 to-transparent p-3.5 border border-cyan-500/20 flex items-center justify-between">
-          <div className="space-y-0.5">
-            <p className="text-xs font-bold text-secondary dark:text-accent">
-              Ready to scale your business end-to-end?
-            </p>
-            <p className="text-[11px] text-secondary/60 dark:text-accent/60">
-              Get an assigned Key Account Manager & structured performance tracking.
-            </p>
+        {/* Quiet Bottom Banner */}
+        <div className="mt-3.5 flex items-center justify-between rounded-xl border border-stroke-1/70 bg-slate-50/50 p-2.5 px-3 dark:border-stroke-6/70 dark:bg-white/[0.02]">
+          <div className="flex items-center gap-2.5">
+            <div className="flex size-7 shrink-0 items-center justify-center rounded-[9px] border border-slate-200/70 bg-white text-secondary/60 dark:border-white/10 dark:bg-white/[0.03] dark:text-accent/60">
+              <Sparkles size={13} strokeWidth={1.75} />
+            </div>
+            <div>
+              <p className="text-xs font-medium text-secondary/90 dark:text-accent/90">
+                Need an end-to-end partner to scale your business?
+              </p>
+              <p className="text-[11px] text-secondary/50 dark:text-accent/50">
+                Dedicated Key Account Manager & weekly growth performance tracking.
+              </p>
+            </div>
           </div>
           <Link
             href="/growth-program"
             onClick={handleClose}
-            className="rounded-full bg-secondary dark:bg-accent text-white dark:text-secondary px-3.5 py-1.5 text-xs font-semibold hover:opacity-90 transition-opacity">
-            Growth Program
+            className="group ml-3 inline-flex shrink-0 items-center gap-1 rounded-full bg-secondary px-3 py-1 text-[11.5px] font-medium text-white shadow-none transition-colors duration-150 hover:bg-secondary/85 dark:bg-accent dark:text-secondary dark:hover:bg-accent/85">
+            <span>Growth Program</span>
+            <ArrowRight size={11} className="transition-transform duration-200 group-hover:translate-x-0.5" />
           </Link>
         </div>
       </div>

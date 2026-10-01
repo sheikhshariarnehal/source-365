@@ -1,7 +1,7 @@
 'use client';
 
 import RevealAnimation from '../animation/RevealAnimation';
-import LinkButton from '../ui/button/LinkButton';
+import { ButtonWithIcon } from '../ui/button/ButtonWithIcon';
 import StackCardItem from '../ui/stack-card/StackCardItem';
 import StackCardWrapper from '../ui/stack-card/StackCardWrapper';
 
@@ -97,11 +97,10 @@ const Services = () => {
               </div>
               <RevealAnimation delay={0.4}>
                 <div>
-                  <LinkButton
+                  <ButtonWithIcon
                     href="/services"
-                    className="btn btn-secondary hover:btn-white dark:btn-accent dark:hover:btn-white-dark btn-md">
-                    View Full Services Breakdown
-                  </LinkButton>
+                    label="View Full Services Breakdown"
+                  />
                 </div>
               </RevealAnimation>
             </div>

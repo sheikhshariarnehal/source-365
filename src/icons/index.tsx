@@ -998,3 +998,5 @@ export {
   WindowsIcon,
   XIcon,
 };
+
+export { PlugConnectedIcon } from './plug-connected-icon';
