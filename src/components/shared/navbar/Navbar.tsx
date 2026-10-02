@@ -5,10 +5,10 @@ import { MobileMenuProvider } from '@/context/MobileMenuContext';
 import { mobileMenuData } from '@/data/navbar-data';
 import { useNavbarScroll } from '@/hooks/useScrollHeader';
 import { cn } from '@/utils/cn';
-import logoDark from '@public/images/shared/logo-dark.svg';
-import logoIcon from '@public/images/shared/logo.svg';
-import mainLogoDark from '@public/images/shared/main-logo-dark.svg';
-import mainLogo from '@public/images/shared/main-logo.svg';
+import headerLogoDark from '@public/images/logo/header-logo-dark.png';
+import headerLogo from '@public/images/logo/header-logo.png';
+import logoIconDark from '@public/images/logo/logo-icon-dark.png';
+import logoIcon from '@public/images/logo/logo-icon.png';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
@@ -39,16 +39,16 @@ const Navbar = () => {
               'border-stroke-2 dark:border-stroke-6 bg-accent dark:bg-background-9 mx-auto flex items-center justify-between rounded-full border px-2.5 py-2.5 xl:py-0',
             )}>
             {/* Logo */}
-            <div className="flex items-center justify-center">
+            <div className="flex items-center justify-center pl-2 sm:pl-3">
               <Link href="/" className="inline-flex items-center">
                 <span className="sr-only">Source 365</span>
-                <figure className="hidden lg:block lg:max-w-[198px]">
-                  <Image src={mainLogo} alt="Source 365" className="block h-auto w-full dark:hidden" priority />
-                  <Image src={mainLogoDark} alt="Source 365" className="hidden h-auto w-full dark:block" priority />
+                <figure className="hidden lg:block lg:max-w-[185px] xl:max-w-[205px]">
+                  <Image src={headerLogo} alt="Source 365" className="block h-auto w-full dark:hidden" priority />
+                  <Image src={headerLogoDark} alt="Source 365" className="hidden h-auto w-full dark:block" priority />
                 </figure>
-                <figure className="block max-w-[44px] lg:hidden">
+                <figure className="block max-w-[48px] lg:hidden">
                   <Image src={logoIcon} alt="Source 365" className="block h-auto w-full dark:hidden" priority />
-                  <Image src={logoDark} alt="Source 365" className="hidden h-auto w-full dark:block" priority />
+                  <Image src={logoIconDark} alt="Source 365" className="hidden h-auto w-full dark:block" priority />
                 </figure>
               </Link>
             </div>

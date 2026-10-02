@@ -33,7 +33,7 @@ const servicesList: ServiceItem[] = [
       'Interactive component libraries',
     ],
     link: '/services/graphics-design',
-    image: '/images/ns-img-495.png',
+    image: '/images/services/ui-ux-design.png',
   },
   {
     id: 'web-dev',
@@ -49,7 +49,7 @@ const servicesList: ServiceItem[] = [
       'Automated cloud CI/CD pipelines',
     ],
     link: '/services/web-development',
-    image: '/images/ns-img-496.png',
+    image: '/images/services/web-development.png',
   },
   {
     id: 'brand-strategy',
@@ -65,7 +65,7 @@ const servicesList: ServiceItem[] = [
       'Dedicated Key Account Manager',
     ],
     link: '/growth-program',
-    image: '/images/ns-img-499.png',
+    image: '/images/services/brand-strategy.png',
   },
   {
     id: 'digital-marketing',
@@ -81,7 +81,7 @@ const servicesList: ServiceItem[] = [
       'Full-funnel attribution tracking',
     ],
     link: '/services/facebook-boosting',
-    image: '/images/ns-img-510.png',
+    image: '/images/services/digital-marketing.png',
   },
 ];
 
@@ -164,7 +164,7 @@ const SmartSolutions = () => {
                           src={service.image}
                           alt={service.title}
                           fill
-                          className="object-contain p-2 rounded-xl"
+                          className="object-contain p-0.5 rounded-xl transition-transform duration-500 group-hover:scale-[1.03]"
                           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                         />
                       </div>

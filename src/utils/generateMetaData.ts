@@ -4,12 +4,19 @@ export const DEFAULT_URL = 'https://source365.org';
 export const DEFAULT_TITLE = 'SOURCE 365 — Your Ultimate Destination for A to Z Digital Solutions';
 export const DEFAULT_DESCRIPTION =
   'Source 365 is a premier digital solutions agency providing end-to-end IT services, business scaling solutions, and high-performance digital growth programs.';
-export const DEFAULT_IMAGE_URL = '/images/shared/main-logo-dark.svg';
+export const DEFAULT_IMAGE_URL = '/images/logo/header-logo.png';
 
 const defaultMetadata: Metadata = {
   metadataBase: new URL(DEFAULT_URL),
   title: DEFAULT_TITLE,
   description: DEFAULT_DESCRIPTION,
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: '48x48' },
+      { url: '/icon.png', sizes: '512x512', type: 'image/png' },
+    ],
+    apple: [{ url: '/apple-icon.png', sizes: '180x180', type: 'image/png' }],
+  },
   openGraph: {
     type: 'website',
     siteName: 'Source 365',

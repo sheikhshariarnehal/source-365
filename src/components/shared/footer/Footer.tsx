@@ -9,7 +9,7 @@ import linkedin from '@public/images/icons/linkedin.svg';
 import tiktok from '@public/images/icons/tiktok.svg';
 import youtube from '@public/images/icons/youtube.svg';
 import gradientImg from '@public/images/ns-img-532.png';
-import mainLogoDark from '@public/images/shared/main-logo-dark.svg';
+import headerLogoDark from '@public/images/logo/header-logo-dark.png';
 import Image from 'next/image';
 import Link from 'next/link';
 import ThemeToggle from '../ThemeToggle';
@@ -31,8 +31,8 @@ const Footer = ({ className }: { className?: string }) => {
           <RevealAnimation delay={0.1}>
             <div className="col-span-12 xl:col-span-4">
               <div className="max-w-[306px]">
-                <figure className="max-w-[190px]">
-                  <Image src={mainLogoDark} alt="Source 365 Logo" priority />
+                <figure className="max-w-[195px]">
+                  <Image src={headerLogoDark} alt="Source 365 Logo" priority />
                 </figure>
                 <p className="text-accent/60 text-tagline-1 mt-4 mb-7 font-normal leading-relaxed">
                   Your ultimate destination for A to Z digital solutions. We build extraordinary digital
