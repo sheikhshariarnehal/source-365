@@ -120,8 +120,7 @@ const Navbar = () => {
               <ButtonWithIcon
                 href="/contact-us"
                 label="Contact Us"
-                className="h-10 text-xs ps-5 pe-12 hover:ps-12 hover:pe-5"
-                iconClassName="w-8 h-8 group-hover:right-[calc(100%-36px)]"
+                className="ps-5 pe-12 hover:ps-12 hover:pe-5"
               />
             </div>
 

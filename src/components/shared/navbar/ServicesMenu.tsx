@@ -3,77 +3,74 @@
 import React from 'react';
 import { cn } from '@/utils/cn';
 import Link from 'next/link';
+import { IconType } from 'react-icons';
 import {
-  Zap,
-  TrendingUp,
-  Globe,
-  Smartphone,
-  Search,
-  ShieldCheck,
-  Activity,
-  Palette,
-  ArrowRight,
-  Sparkles,
-} from 'lucide-react';
+  PiGlobe,
+  PiLightning,
+  PiDeviceMobile,
+  PiPulse,
+  PiShieldCheck,
+  PiMagnifyingGlass,
+  PiPalette,
+  PiSquaresFour,
+  PiArrowRight,
+} from 'react-icons/pi';
 
 interface ServiceItem {
   title: string;
   desc: string;
   href: string;
-  badge?: string;
-  icon: React.ComponentType<{ className?: string; size?: number; strokeWidth?: number }>;
+  icon: IconType;
 }
 
-const servicesList: ServiceItem[] = [
-  {
-    title: 'Facebook Boosting',
-    desc: 'Paid campaigns, audience targeting & ROI scaling',
-    href: '/services#boosting',
-    icon: Zap,
-  },
-  {
-    title: 'Growth Program',
-    desc: 'Full-funnel branding & dedicated growth management',
-    href: '/growth-program',
-    badge: 'Popular',
-    icon: TrendingUp,
-  },
+const services: ServiceItem[] = [
   {
     title: 'Web Development',
-    desc: 'Fast, responsive custom web applications & portals',
-    href: '/services#web-development',
-    icon: Globe,
+    desc: 'Custom web applications, portals & SaaS platforms',
+    href: '/services/web-development',
+    icon: PiGlobe,
   },
   {
-    title: 'App Development',
-    desc: 'Native iOS & Android mobile product engineering',
-    href: '/services#app-development',
-    icon: Smartphone,
+    title: 'Facebook & Meta Boosting',
+    desc: 'High-ROI paid campaigns & audience scaling',
+    href: '/services/facebook-boosting',
+    icon: PiLightning,
+  },
+  {
+    title: 'Mobile App Development',
+    desc: 'Native iOS & Android mobile applications',
+    href: '/services/app-development',
+    icon: PiDeviceMobile,
+  },
+  {
+    title: 'Server-Side Tracking',
+    desc: 'Meta CAPI, GA4 & precision conversion tracking',
+    href: '/services/server-side-tracking',
+    icon: PiPulse,
+  },
+  {
+    title: 'Software QA & Testing',
+    desc: 'Automated test suites & software reliability',
+    href: '/services/sqa',
+    icon: PiShieldCheck,
   },
   {
     title: 'SEO & Search Visibility',
     desc: 'Technical site audits, backlinks & top rankings',
-    href: '/services#seo',
-    icon: Search,
+    href: '/services/seo',
+    icon: PiMagnifyingGlass,
   },
   {
-    title: 'SQA & Software QA',
-    desc: 'Automated test pipelines & software reliability',
-    href: '/services#sqa',
-    icon: ShieldCheck,
+    title: 'UI/UX & Brand Design',
+    desc: 'Product design systems, UI & visual branding',
+    href: '/services/graphics-design',
+    icon: PiPalette,
   },
   {
-    title: 'Server-Side Tracking',
-    desc: 'Precision CAPI attribution & conversion telemetry',
-    href: '/services#tracking',
-    badge: 'Advanced',
-    icon: Activity,
-  },
-  {
-    title: 'Graphics & Brand Design',
-    desc: 'Visual identities, UI design & marketing creatives',
-    href: '/services#graphics',
-    icon: Palette,
+    title: 'All IT Services Directory',
+    desc: 'Explore our complete suite of capabilities',
+    href: '/services',
+    icon: PiSquaresFour,
   },
 ];
 
@@ -85,70 +82,45 @@ export default function ServicesMenu({
   setMenuDropdownId: (id: string | null) => void;
 }) {
   const handleClose = () => setMenuDropdownId(null);
+  const isOpen = menuDropdownId === 'services-mega-menu';
 
   return (
     <div>
-      {/* Invisible hover bridge */}
+      {/* Hover bridge */}
       <div
         className={cn(
-          'dropdown-menu-bridge pointer-events-none absolute top-full left-1/2 z-40 h-4 w-full min-w-[760px] -translate-x-1/2 bg-transparent',
-          menuDropdownId === 'services-mega-menu' ? '!pointer-events-auto opacity-100' : 'pointer-events-none opacity-0',
+          'dropdown-menu-bridge pointer-events-none absolute top-full left-[-16px] z-40 h-5 w-[700px] bg-transparent',
+          isOpen ? '!pointer-events-auto opacity-100' : 'pointer-events-none opacity-0',
         )}
       />
 
-      {/* Mega Menu Dropdown */}
+      {/* Clarified Menu Dropdown */}
       <div
         id="services-mega-menu"
+        style={{ left: '-16px' }}
         className={cn(
-          'dropdown-menu pointer-events-none absolute top-full left-1/2 z-50 mt-2 w-[740px] -translate-x-1/2 rounded-2xl border border-stroke-1/80 bg-white/98 p-5 shadow-[0_16px_40px_rgba(0,0,0,0.08)] backdrop-blur-xl transition-all duration-300 dark:border-stroke-6/80 dark:bg-[#0f131a]/98 dark:shadow-[0_20px_50px_rgba(0,0,0,0.45)] opacity-0',
-          menuDropdownId === 'services-mega-menu'
+          'dropdown-menu pointer-events-none absolute top-full z-50 mt-2 w-[700px] rounded-2xl border border-stroke-1 bg-white p-4 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.12),0_0_0_1px_rgba(0,0,0,0.04)] transition-all duration-200 ease-out dark:border-stroke-6 dark:bg-[#0e1219] dark:shadow-[0_25px_60px_-15px_rgba(0,0,0,0.8),0_0_0_1px_rgba(255,255,255,0.06)] opacity-0',
+          isOpen
             ? '!pointer-events-auto translate-y-0 opacity-100'
-            : 'pointer-events-none translate-y-2 opacity-0',
+            : 'pointer-events-none translate-y-1.5 opacity-0',
         )}>
-        {/* Header strip */}
-        <div className="mb-3 flex items-center justify-between border-b border-stroke-1/60 pb-2.5 dark:border-stroke-6/60">
-          <span className="text-[11px] font-medium tracking-wide text-secondary/45 uppercase dark:text-accent/40">
-            Services & Capabilities
-          </span>
-          <Link
-            href="/services"
-            onClick={handleClose}
-            className="group inline-flex items-center gap-1 text-xs font-medium text-secondary/70 transition-colors hover:text-primary-600 dark:text-accent/70 dark:hover:text-primary-400">
-            <span>View all services</span>
-            <ArrowRight size={12} className="transition-transform duration-200 group-hover:translate-x-0.5" />
-          </Link>
-        </div>
-
-        {/* 2-Column Grid */}
+        {/* 2-Column Clean Services Grid */}
         <div className="grid grid-cols-2 gap-1.5">
-          {servicesList.map((service) => {
+          {services.map((service) => {
             const Icon = service.icon;
             return (
               <Link
                 key={service.title}
                 href={service.href}
                 onClick={handleClose}
-                className="group flex items-center gap-3 rounded-xl p-2.5 transition-colors duration-150 hover:bg-black/[0.025] dark:hover:bg-white/[0.03]">
-                <div className="flex size-9.5 shrink-0 items-center justify-center rounded-[12px] border border-slate-200/80 bg-white text-secondary/75 shadow-[0_1px_2px_rgba(0,0,0,0.02)] transition-colors duration-200 group-hover:border-slate-300 group-hover:text-secondary dark:border-white/10 dark:bg-white/[0.03] dark:text-accent/75 dark:group-hover:border-white/20 dark:group-hover:text-accent">
-                  <Icon size={17} strokeWidth={1.75} />
+                className="group flex items-center gap-3 rounded-xl p-2.5 transition-colors duration-150 hover:bg-slate-100/70 dark:hover:bg-white/[0.04]">
+                <div className="flex size-9 shrink-0 items-center justify-center rounded-lg border border-slate-200/80 bg-slate-50 text-secondary/70 shadow-2xs transition-colors duration-200 group-hover:border-primary-200 group-hover:bg-primary-50 group-hover:text-primary-600 dark:border-white/10 dark:bg-white/[0.03] dark:text-accent/70 dark:group-hover:border-primary-500/30 dark:group-hover:bg-primary-500/10 dark:group-hover:text-primary-400">
+                  <Icon size={18} />
                 </div>
                 <div className="min-w-0 flex-1">
-                  <div className="flex items-center gap-2">
-                    <span className="truncate text-[13.5px] font-medium text-secondary/90 transition-colors group-hover:text-primary-600 dark:text-accent/90 dark:group-hover:text-primary-400">
-                      {service.title}
-                    </span>
-                    {service.badge && (
-                      <span
-                        className={cn(
-                          'rounded-md px-1.5 py-0.5 text-[9.5px] font-medium leading-none',
-                          service.badge === 'Popular'
-                            ? 'bg-emerald-500/[0.08] text-emerald-700/90 dark:bg-emerald-500/15 dark:text-emerald-300'
-                            : 'bg-primary-500/[0.08] text-primary-700/90 dark:bg-primary-500/15 dark:text-primary-300',
-                        )}>
-                        {service.badge}
-                      </span>
-                    )}
-                  </div>
+                  <span className="block truncate text-[13.5px] font-medium text-secondary/90 transition-colors group-hover:text-primary-600 dark:text-accent/90 dark:group-hover:text-primary-400">
+                    {service.title}
+                  </span>
                   <p className="mt-0.5 truncate text-[11.5px] text-secondary/50 dark:text-accent/50">
                     {service.desc}
                   </p>
@@ -158,30 +130,24 @@ export default function ServicesMenu({
           })}
         </div>
 
-        {/* Quiet Bottom Banner */}
-        <div className="mt-3.5 flex items-center justify-between rounded-xl border border-stroke-1/70 bg-slate-50/50 p-2.5 px-3 dark:border-stroke-6/70 dark:bg-white/[0.02]">
-          <div className="flex items-center gap-2.5">
-            <div className="flex size-7 shrink-0 items-center justify-center rounded-[9px] border border-slate-200/70 bg-white text-secondary/60 dark:border-white/10 dark:bg-white/[0.03] dark:text-accent/60">
-              <Sparkles size={13} strokeWidth={1.75} />
-            </div>
-            <div>
-              <p className="text-xs font-medium text-secondary/90 dark:text-accent/90">
-                Need an end-to-end partner to scale your business?
-              </p>
-              <p className="text-[11px] text-secondary/50 dark:text-accent/50">
-                Dedicated Key Account Manager & weekly growth performance tracking.
-              </p>
-            </div>
-          </div>
+        {/* Quiet Bottom Strip */}
+        <div className="mt-2.5 flex items-center justify-between border-t border-stroke-1/70 px-2 pt-3 text-[11.5px] dark:border-stroke-6/70">
+          <span className="text-secondary/55 dark:text-accent/55">
+            Need a custom enterprise scope or dedicated team?
+          </span>
           <Link
-            href="/growth-program"
+            href="/contact-us"
             onClick={handleClose}
-            className="group ml-3 inline-flex shrink-0 items-center gap-1 rounded-full bg-secondary px-3 py-1 text-[11.5px] font-medium text-white shadow-none transition-colors duration-150 hover:bg-secondary/85 dark:bg-accent dark:text-secondary dark:hover:bg-accent/85">
-            <span>Growth Program</span>
-            <ArrowRight size={11} className="transition-transform duration-200 group-hover:translate-x-0.5" />
+            className="group inline-flex items-center gap-1 font-medium text-secondary/80 transition-colors hover:text-primary-600 dark:text-accent/80 dark:hover:text-primary-400">
+            <span>Speak with an Architect</span>
+            <PiArrowRight size={13} className="transition-transform duration-200 group-hover:translate-x-0.5" />
           </Link>
         </div>
       </div>
     </div>
   );
 }
+
+
+
+
