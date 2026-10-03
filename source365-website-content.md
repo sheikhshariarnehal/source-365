@@ -57,8 +57,7 @@ reports.
 
 ### Web Development
 
-Professional website development services for businesses, organizations,
-and individuals, including responsive websites and custom web solutions.
+Professional website and web application development services for businesses, organizations, and individuals. Offerings include WordPress & WooCommerce websites, modern high-performance React & Next.js websites, and custom full-stack MERN (MongoDB, Express, React, Node.js) web applications and dashboards.
 
 ### App Development
 

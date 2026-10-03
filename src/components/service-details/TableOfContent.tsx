@@ -27,12 +27,17 @@ const TableOfContent = ({ markdownContent }: TableOfContentProps) => {
   const handleScrollToSection = useCallback(
     (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
       e.preventDefault();
-      if (lenis) {
-        lenis.scrollTo(`#${targetId}`, {
-          offset: -100,
-          duration: 1.2,
-          easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-        });
+      const targetElement = document.getElementById(targetId);
+      if (targetElement) {
+        if (lenis) {
+          lenis.scrollTo(targetElement, {
+            offset: -100,
+            duration: 1.2,
+            easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+          });
+        } else {
+          targetElement.scrollIntoView({ behavior: 'smooth' });
+        }
       }
     },
     [lenis],

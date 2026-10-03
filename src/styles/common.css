@@ -63,17 +63,21 @@ Common Styles all over the sites
 /* ==========SERVICES DETAILS========== */
 .services-details-content {
   h2 {
-    @apply text-heading-4 pb-2 font-normal;
+    @apply text-heading-4 pb-2 pt-6 font-normal first:pt-0 text-secondary dark:text-accent;
+  }
+
+  h3 {
+    @apply text-heading-5 pb-2 pt-4 font-normal text-secondary dark:text-accent;
   }
 
   p {
-    @apply py-3;
+    @apply py-3 text-secondary/70 dark:text-accent/70 leading-relaxed text-tagline-1;
     img {
       @apply overflow-hidden !rounded-2xl;
     }
 
     strong {
-      @apply text-secondary dark:text-accent font-medium;
+      @apply text-secondary dark:text-accent font-semibold;
     }
   }
 
@@ -82,16 +86,16 @@ Common Styles all over the sites
   }
 
   ul {
-    @apply space-y-4;
+    @apply space-y-4 my-6;
     li {
-      @apply flex items-center gap-3 first:mt-8;
+      @apply relative pl-8 text-secondary/80 dark:text-accent/80 text-tagline-1 leading-relaxed;
       strong {
-        @apply text-secondary dark:text-accent font-medium;
+        @apply text-secondary dark:text-accent font-semibold;
       }
 
       &::before {
         content: '';
-        @apply shrink-0;
+        @apply absolute left-0 top-[3px] shrink-0;
         width: 20px;
         height: 20px;
         background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='20' height='20' rx='10' fill='%231a1a1c'/%3E%3Cpath d='M9.31661 13.7561L14.7491 8.42144C15.0836 8.0959 15.0836 7.5697 14.7491 7.24416C14.4145 6.91861 13.8736 6.91861 13.539 7.24416L8.7116 11.9901L6.46096 9.78807C6.12636 9.46253 5.58554 9.46253 5.25095 9.78807C4.91635 10.1136 4.91635 10.6398 5.25095 10.9654L8.1066 13.7561C8.27347 13.9184 8.49253 14 8.7116 14C8.93067 14 9.14974 13.9184 9.31661 13.7561Z' fill='%23ffffff'/%3E%3C/svg%3E");
@@ -102,6 +106,19 @@ Common Styles all over the sites
       .dark &::before {
         background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='20' height='20' rx='10' fill='%23fcfcfd'/%3E%3Cpath d='M9.31661 13.7561L14.7491 8.42144C15.0836 8.0959 15.0836 7.5697 14.7491 7.24416C14.4145 6.91861 13.8736 6.91861 13.539 7.24416L8.7116 11.9901L6.46096 9.78807C6.12636 9.46253 5.58554 9.46253 5.25095 9.78807C4.91635 10.1136 4.91635 10.6398 5.25095 10.9654L8.1066 13.7561C8.27347 13.9184 8.49253 14 8.7116 14C8.93067 14 9.14974 13.9184 9.31661 13.7561Z' fill='%23000000'/%3E%3C/svg%3E");
       }
+    }
+  }
+
+  table {
+    @apply my-6 w-full border-collapse overflow-hidden rounded-xl border border-stroke-3 dark:border-stroke-7 text-left text-tagline-2 sm:text-tagline-1;
+    th {
+      @apply bg-background-2 dark:bg-background-6 border-b border-stroke-3 dark:border-stroke-7 px-4 py-3.5 font-medium text-secondary dark:text-accent;
+    }
+    td {
+      @apply border-b border-stroke-3 dark:border-stroke-7 px-4 py-3 text-secondary/70 dark:text-accent/70;
+    }
+    tr:last-child td {
+      @apply border-b-0;
     }
   }
 }
@@ -121,13 +138,16 @@ Common Styles all over the sites
     @apply mb-0 pb-6;
   }
   ul {
-    @apply space-y-5;
+    @apply space-y-4 my-6;
     li {
-      @apply flex items-center gap-3;
+      @apply relative pl-8 text-secondary/80 dark:text-accent/80 text-tagline-1 leading-relaxed;
+      strong {
+        @apply text-secondary dark:text-accent font-semibold;
+      }
 
       &::before {
         content: '';
-        @apply shrink-0;
+        @apply absolute left-0 top-[3px] shrink-0;
         width: 20px;
         height: 20px;
         background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='20' height='20' rx='10' fill='%231a1a1c'/%3E%3Cpath d='M9.31661 13.7561L14.7491 8.42144C15.0836 8.0959 15.0836 7.5697 14.7491 7.24416C14.4145 6.91861 13.8736 6.91861 13.539 7.24416L8.7116 11.9901L6.46096 9.78807C6.12636 9.46253 5.58554 9.46253 5.25095 9.78807C4.91635 10.1136 4.91635 10.6398 5.25095 10.9654L8.1066 13.7561C8.27347 13.9184 8.49253 14 8.7116 14C8.93067 14 9.14974 13.9184 9.31661 13.7561Z' fill='%23ffffff'/%3E%3C/svg%3E");

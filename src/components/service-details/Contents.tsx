@@ -16,7 +16,17 @@ const Contents = ({ slug }: { slug: string }) => {
           <div className="w-full max-w-full lg:max-w-[767px]">
             <RevealAnimation delay={0.3}>
               <div className="services-details-content mb-[72px]">
-                <ReactMarkdown rehypePlugins={[[rehypeSlug]]}>{service.content}</ReactMarkdown>
+                <ReactMarkdown
+                  rehypePlugins={[[rehypeSlug]]}
+                  components={{
+                    table: ({ ...props }) => (
+                      <div className="my-6 w-full overflow-x-auto">
+                        <table {...props} />
+                      </div>
+                    ),
+                  }}>
+                  {service.content}
+                </ReactMarkdown>
               </div>
             </RevealAnimation>
 
