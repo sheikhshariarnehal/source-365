@@ -4,7 +4,6 @@ import Blog from '@/components/home/Blog';
 import CTA from '@/components/home/CTA';
 import Hero from '@/components/home/Hero';
 import Services from '@/components/home/Services';
-import SmartSolutions from '@/components/home/SmartSolutions';
 import Squad from '@/components/home/Squad';
 import Steps from '@/components/home/Steps';
 import Testimonial from '@/components/home/Testimonial';
@@ -16,9 +15,9 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   ...defaultMetadata,
-  title: 'SOURCE 365 — A to Z Digital Solutions & Strategic Growth',
+  title: 'SOURCE 365 — Digital Agency for Custom Development & Performance Marketing',
   description:
-    'Your ultimate destination for A to Z digital solutions. Professional Facebook boosting, full-stack web and mobile development, server-side tracking, and dedicated growth programs.',
+    'Premier digital agency delivering high-impact web and mobile engineering alongside ROI-driven marketing campaigns that scale your business.',
 };
 
 const page = () => {
@@ -27,7 +26,6 @@ const page = () => {
   return (
     <main className="bg-white dark:bg-black">
       <Hero />
-      <SmartSolutions />
       <Services />
       <Steps />
       <AboutOverview />

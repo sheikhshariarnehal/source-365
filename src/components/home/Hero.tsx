@@ -1,8 +1,8 @@
 'use client';
 
-import avatar1 from '@public/images/ns-avatar-1.png';
-import avatar2 from '@public/images/ns-avatar-2.png';
-import avatar3 from '@public/images/ns-avatar-3.png';
+import avatar1 from '@public/images/avatars/avatar-1.jpg';
+import avatar2 from '@public/images/avatars/avatar-2.jpg';
+import avatar3 from '@public/images/avatars/avatar-3.jpg';
 import Image, { StaticImageData } from 'next/image';
 import Marquee from 'react-fast-marquee';
 import RevealAnimation from '../animation/RevealAnimation';
@@ -70,14 +70,14 @@ const Hero = () => {
               <RevealAnimation delay={0.1} direction="left" offset={30}>
                 <div>
                   <h1 className="text-secondary dark:text-accent mb-5 font-semibold tracking-[-0.025em] text-3xl sm:text-4xl md:text-5xl lg:text-[44px] xl:text-[52px] leading-[1.14] text-balance">
-                    Your Ultimate Destination for A to Z Digital Solutions
+                    Digital Agency for Custom Development &amp; Performance Marketing
                   </h1>
                 </div>
               </RevealAnimation>
 
               <RevealAnimation delay={0.2} direction="left" offset={30}>
                 <p className="text-secondary/75 dark:text-accent/75 mb-8 max-w-[560px] text-base sm:text-lg leading-[1.65]">
-                  We are building extraordinary digital experiences. Accelerate your business with high-ROI Facebook boosting, custom web &amp; mobile engineering, precision server-side tracking, and dedicated growth programs.
+                  We engineer high-impact web and mobile applications and execute ROI-driven marketing campaigns that turn traffic into measurable revenue.
                 </p>
               </RevealAnimation>
 
@@ -94,7 +94,7 @@ const Hero = () => {
                     <LinkButton
                       href="/services"
                       className="btn hover:btn-secondary dark:btn-dark btn-white btn-xl dark:bg-accent/20 dark:text-secondary w-full border-0 sm:w-auto shadow-md">
-                      Explore IT Services
+                      Explore Our Services
                     </LinkButton>
                   </li>
                 </ul>
