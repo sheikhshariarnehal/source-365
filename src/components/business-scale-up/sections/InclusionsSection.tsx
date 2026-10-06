@@ -162,24 +162,20 @@ export default function InclusionsSection() {
   return (
     <section className="py-20 md:py-24" id="whats-included">
       <div className="main-container">
-        {/* Distilled Section Header */}
-        <div className="text-center max-w-[700px] mx-auto mb-12 space-y-3">
+        {/* Impeccable Typeset Section Header */}
+        <div className="text-center max-w-[840px] mx-auto mb-12 md:mb-14 space-y-4">
           <RevealAnimation delay={0.1}>
-            <div className="inline-flex items-center gap-2 rounded-full border border-stroke-2 dark:border-stroke-6 bg-background-2 dark:bg-background-8 px-4 py-1 text-xs font-medium text-secondary/80 dark:text-accent/80">
+            <div className="inline-flex items-center justify-center rounded-full border border-stroke-2 dark:border-stroke-6 bg-white/70 dark:bg-background-7/70 backdrop-blur-xs px-4.5 py-1.5 text-xs md:text-sm font-normal text-secondary/80 dark:text-accent/80 shadow-2xs">
               <span>Official Deliverables</span>
             </div>
           </RevealAnimation>
 
           <RevealAnimation delay={0.2}>
-            <h2 className="text-heading-3 md:text-heading-2 font-semibold text-secondary dark:text-accent">
-              What&apos;s Included in Business Scale-UP?
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[50px] xl:text-[54px] font-bold text-secondary dark:text-accent tracking-tight leading-[1.14] max-w-[800px] mx-auto">
+              <span className="inline-block">What&apos;s Included in Business</span>
+              <br className="hidden sm:inline" />{' '}
+              <span className="inline-block">Scale-UP?</span>
             </h2>
-          </RevealAnimation>
-
-          <RevealAnimation delay={0.3}>
-            <p className="text-secondary/70 dark:text-accent/70 text-base leading-relaxed font-normal">
-              Every deliverable from our official service blueprint, itemized across timeline tiers.
-            </p>
           </RevealAnimation>
         </div>
 

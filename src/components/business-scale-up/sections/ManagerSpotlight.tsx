@@ -12,21 +12,22 @@ export default function ManagerSpotlight() {
           {/* Left Column: Manager value proposition */}
           <div className="lg:col-span-7 space-y-6">
             <RevealAnimation delay={0.1}>
-              <div className="inline-flex items-center gap-2 rounded-full border border-red-500/20 bg-red-500/10 px-4 py-1 text-xs font-semibold text-red-600 dark:text-red-400">
-                <UserCheck className="size-3.5" />
-                <span>Dedicated Human Leadership</span>
+              <div className="inline-flex items-center justify-center rounded-full border border-stroke-2 dark:border-stroke-6 bg-white/70 dark:bg-background-7/70 backdrop-blur-xs px-4.5 py-1.5 text-xs md:text-sm font-normal text-secondary/80 dark:text-accent/80 shadow-2xs">
+                <span>Dedicated Marketing Leadership</span>
               </div>
             </RevealAnimation>
 
             <RevealAnimation delay={0.2}>
-              <h2 className="text-heading-3 md:text-heading-2 font-bold text-secondary dark:text-accent leading-tight">
-                An Expert Marketing Manager dedicated to your revenue.
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[48px] font-bold text-secondary dark:text-accent tracking-tight leading-[1.14]">
+                An Expert Marketing Manager
+                <br />
+                Dedicated to Your Revenue
               </h2>
             </RevealAnimation>
 
             <RevealAnimation delay={0.3}>
-              <p className="text-secondary/70 dark:text-accent/70 text-base leading-relaxed">
-                Most agencies assign your business to entry-level interns or rely on automated ad rules. With Source 365, your brand gets a dedicated, battle-tested Marketing Manager who actively monitors campaigns every single day, executes the Ads Kill protocol to protect your budget, and directly communicates with you.
+              <p className="text-secondary/65 dark:text-accent/65 text-sm sm:text-base md:text-lg leading-relaxed font-normal pt-1">
+                Direct 1-on-1 accountability, daily ad monitoring, and active budget defense — no entry-level interns or automated guesswork.
               </p>
             </RevealAnimation>
 

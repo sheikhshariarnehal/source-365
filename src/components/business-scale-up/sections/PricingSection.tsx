@@ -1,18 +1,19 @@
 'use client';
 
 import RevealAnimation from '@/components/animation/RevealAnimation';
-import { CheckCircle2, Sparkles, ArrowRight } from 'lucide-react';
+import { CheckCircle2 } from 'lucide-react';
 
 const pricingPlans = [
   {
     duration: '1 MONTH',
+    originalPrice: null,
     price: '৳15,000',
-    unit: 'PER MONTH',
+    unit: '/mo',
     badge: null,
     savingsBadge: null,
     isPopular: false,
     summary: 'Ideal for channel validation, technical health audit, and launching an agile ad engine.',
-    buttonText: 'Start 1-Month Validation',
+    buttonText: 'Choose plan',
     features: [
       'Website & page health performance audit',
       'Targeted ad campaign setup & launch',
@@ -26,33 +27,35 @@ const pricingPlans = [
   },
   {
     duration: '3 MONTHS',
+    originalPrice: '৳45,000',
     price: '৳42,000',
-    unit: 'TOTAL PACKAGE',
+    unit: 'total',
     badge: 'MOST POPULAR',
     savingsBadge: 'Save ৳3,000',
     isPopular: true,
-    summary: 'The proven growth cycle to optimize conversion funnels, lower CAC, and scale reliable monthly revenue.',
-    buttonText: 'Claim 3-Month Scale-UP Package',
+    summary: 'The proven growth cycle to optimize conversion funnels, lower CAC, and scale reliable revenue.',
+    buttonText: 'Choose plan',
     features: [
       'Everything included in the 1 Month plan',
-      'Tailored commercial strategy + monthly content calendar',
-      'Comprehensive competitor ad intelligence analysis',
-      'Multi-platform allocation (Meta + Google / TikTok)',
-      'High-converting commercial copywriting & hooks',
-      'Weekly performance briefs & monthly strategy meetings',
-      'Continuous A/B testing & aggressive budget scaling',
+      'Tailored commercial strategy & calendar',
+      'Competitor ad intelligence analysis',
+      'Multi-platform allocation (Meta + Google)',
+      'High-converting commercial copywriting',
+      'Weekly performance briefs & syncs',
+      'Continuous A/B testing & budget scaling',
     ],
     waMessage: 'Hello Source 365, I want to scale my business with the 3 Months (৳42,000) Business Scale-UP package.',
   },
   {
     duration: '6 MONTHS',
+    originalPrice: '৳90,000',
     price: '৳85,000',
-    unit: 'TOTAL PACKAGE',
+    unit: 'total',
     badge: 'BEST VALUE',
     savingsBadge: 'Save ৳5,000',
     isPopular: false,
     summary: 'Long-term sustainable market dominance, omnichannel brand authority, and compounding sales growth.',
-    buttonText: 'Select 6-Month Enterprise Plan',
+    buttonText: 'Choose plan',
     features: [
       'Everything included in the 3 Months plan',
       'End-to-end multi-channel growth architecture',
@@ -70,110 +73,188 @@ export default function PricingSection() {
   return (
     <section className="py-20 md:py-24" id="pricing-plans">
       <div className="main-container">
-        {/* Section Header */}
-        <div className="text-center max-w-[700px] mx-auto mb-14 space-y-3">
+        {/* Impeccable Typeset Section Header */}
+        <div className="text-center max-w-[760px] mx-auto mb-10 md:mb-12 space-y-4">
           <RevealAnimation delay={0.1}>
-            <div className="inline-flex items-center gap-2 rounded-full border border-stroke-2 dark:border-stroke-6 bg-background-2 dark:bg-background-8 px-4 py-1 text-xs font-medium text-secondary/80 dark:text-accent/80">
-              <Sparkles className="size-3.5 text-secondary/50 dark:text-accent/50" />
+            <div className="inline-flex items-center justify-center rounded-full border border-stroke-2 dark:border-stroke-6 bg-white/70 dark:bg-background-7/70 backdrop-blur-xs px-4.5 py-1.5 text-xs md:text-sm font-normal text-secondary/80 dark:text-accent/80 shadow-2xs">
               <span>Transparent Investment</span>
             </div>
           </RevealAnimation>
           <RevealAnimation delay={0.2}>
-            <h2 className="text-heading-3 md:text-heading-2 font-semibold text-secondary dark:text-accent">
-              Business Scale-UP Pricing Plans
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[52px] xl:text-[56px] font-bold text-secondary dark:text-accent tracking-tight leading-[1.12] max-w-[680px] mx-auto">
+              Business Scale-UP
+              <br />
+              Pricing Plans
             </h2>
-          </RevealAnimation>
-          <RevealAnimation delay={0.3}>
-            <p className="text-secondary/70 dark:text-accent/70 text-base leading-relaxed font-normal">
-              Fixed-fee management packages without hidden costs. Pick the timeline tailored to your growth goals.
-            </p>
           </RevealAnimation>
         </div>
 
-        {/* 3 Pricing Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-7 items-stretch pt-2">
+        {/* 3 Pricing Cards matching reference layout with bottom alignment & top protruding banner */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-7 items-end pt-8">
           {pricingPlans.map((plan, index) => {
             return (
               <RevealAnimation key={plan.duration} delay={0.08 * (index + 1)}>
-                <div
-                  className={`relative rounded-3xl p-8 flex flex-col justify-between h-full transition-all duration-300 ${
-                    plan.isPopular
-                      ? 'border border-red-500/50 bg-white dark:bg-background-7 shadow-lg'
-                      : 'border border-stroke-2 dark:border-stroke-6 bg-white dark:bg-background-7 shadow-xs hover:border-stroke-1'
-                  }`}>
-                  {/* Top Badge for Featured Tier */}
-                  {plan.badge && (
-                    <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 rounded-full bg-secondary text-accent dark:bg-white dark:text-secondary px-3.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider shadow-xs flex items-center gap-1">
-                      <span>{plan.badge}</span>
+                {plan.isPopular ? (
+                  /* Featured Card with top banner protruding above */
+                  <div className="relative rounded-[26px] bg-[#E11D48] p-[2px] shadow-xs transition-all duration-300">
+                    {/* Top Popular Banner */}
+                    <div className="py-2.5 px-4 text-center">
+                      <span className="text-xs font-black uppercase tracking-wider text-white">
+                        {plan.badge}
+                      </span>
                     </div>
-                  )}
 
-                  <div className="space-y-6">
-                    {/* Header info */}
-                    <div className="border-b border-stroke-2 dark:border-stroke-6 pb-6">
-                      <div className="flex items-center justify-between">
-                        <h3 className="text-lg font-bold text-secondary dark:text-accent tracking-wide">
+                    {/* Inner Card Container */}
+                    <div className="bg-white dark:bg-background-7 rounded-[24px] p-6 sm:p-8">
+                      {/* Top Row: Plan Title & Savings Pill */}
+                      <div className="h-8 flex items-center justify-between gap-2">
+                        <h3 className="text-xl font-bold text-secondary dark:text-accent tracking-tight">
                           {plan.duration}
                         </h3>
                         {plan.savingsBadge && (
-                          <span className="rounded-md bg-background-2 dark:bg-background-8 border border-stroke-2 dark:border-stroke-6 px-2.5 py-0.5 text-[11px] font-medium text-secondary/75 dark:text-accent/75">
+                          <span className="rounded-full bg-background-2 dark:bg-background-8 border border-stroke-2 dark:border-stroke-6 px-3 py-1 text-xs font-semibold text-secondary/80 dark:text-accent/80 shadow-2xs">
                             {plan.savingsBadge}
                           </span>
                         )}
                       </div>
 
-                      <div className="mt-4 flex items-baseline gap-2">
-                        <span className={`text-4xl font-bold tracking-tight ${plan.isPopular ? 'text-red-600 dark:text-red-400' : 'text-secondary dark:text-accent'}`}>
+                      {/* Pricing block with aligned vertical baseline */}
+                      <div className="mt-4">
+                        <div className="h-5 flex items-center">
+                          {plan.originalPrice ? (
+                            <span className="text-sm font-medium text-secondary/40 dark:text-accent/40 line-through">
+                              {plan.originalPrice}
+                            </span>
+                          ) : (
+                            <span className="text-xs text-transparent select-none" aria-hidden="true">
+                              &nbsp;
+                            </span>
+                          )}
+                        </div>
+                        <div className="flex items-baseline gap-1.5 mt-0.5">
+                          <span className="text-4xl sm:text-[42px] font-black tracking-tight text-[#E11D48] dark:text-[#F43F5E]">
+                            {plan.price}
+                          </span>
+                          <span className="text-xs sm:text-sm font-medium text-secondary/55 dark:text-accent/55 lowercase">
+                            {plan.unit}
+                          </span>
+                        </div>
+                      </div>
+
+                      {/* Action CTA Button placed right below price */}
+                      <div className="mt-6">
+                        <a
+                          href={`https://wa.me/8801408185323?text=${encodeURIComponent(plan.waMessage)}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="btn w-full h-12 rounded-xl font-semibold text-sm flex items-center justify-center transition-all duration-300 shadow-2xs bg-[#E11D48] hover:bg-[#BE123C] text-white border-transparent">
+                          <span>{plan.buttonText}</span>
+                        </a>
+                      </div>
+
+                      {/* Summary Note right under button */}
+                      <p className="min-h-[36px] text-xs text-secondary/65 dark:text-accent/65 mt-3 leading-relaxed">
+                        {plan.summary}
+                      </p>
+
+                      {/* Divider */}
+                      <div className="w-full h-px bg-stroke-2 dark:bg-stroke-6 my-6" />
+
+                      {/* Deliverables / Features List */}
+                      <div className="space-y-3">
+                        <p className="text-[11px] font-semibold text-secondary/50 dark:text-accent/50 uppercase tracking-wider">
+                          Included deliverables:
+                        </p>
+                        <ul className="space-y-2.5">
+                          {plan.features.map((feature) => (
+                            <li
+                              key={feature}
+                              className="flex items-start gap-2.5 text-xs text-secondary/80 dark:text-accent/80 font-normal">
+                              <CheckCircle2 className="size-4 text-secondary/60 dark:text-accent/60 shrink-0 mt-0.5" />
+                              <span className="leading-snug">{feature}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                ) : (
+                  /* Standard Card */
+                  <div className="relative rounded-3xl border border-stroke-2 dark:border-stroke-6 bg-white dark:bg-background-7 p-6 sm:p-8 shadow-xs hover:border-stroke-1 transition-all duration-300">
+                    {/* Top Row: Plan Title & Savings Pill */}
+                    <div className="h-8 flex items-center justify-between gap-2">
+                      <h3 className="text-xl font-bold text-secondary dark:text-accent tracking-tight">
+                        {plan.duration}
+                      </h3>
+                      {plan.savingsBadge ? (
+                        <span className="rounded-full bg-background-2 dark:bg-background-8 border border-stroke-2 dark:border-stroke-6 px-3 py-1 text-xs font-semibold text-secondary/80 dark:text-accent/80 shadow-2xs">
+                          {plan.savingsBadge}
+                        </span>
+                      ) : (
+                        <div className="h-6" aria-hidden="true" />
+                      )}
+                    </div>
+
+                    {/* Pricing block with aligned vertical baseline */}
+                    <div className="mt-4">
+                      <div className="h-5 flex items-center">
+                        {plan.originalPrice ? (
+                          <span className="text-sm font-medium text-secondary/40 dark:text-accent/40 line-through">
+                            {plan.originalPrice}
+                          </span>
+                        ) : (
+                          <span className="text-xs text-transparent select-none" aria-hidden="true">
+                            &nbsp;
+                          </span>
+                        )}
+                      </div>
+                      <div className="flex items-baseline gap-1.5 mt-0.5">
+                        <span className="text-4xl sm:text-[42px] font-black tracking-tight text-secondary dark:text-accent">
                           {plan.price}
                         </span>
-                        <span className="text-[11px] font-medium text-secondary/55 dark:text-accent/55 uppercase">
+                        <span className="text-xs sm:text-sm font-medium text-secondary/55 dark:text-accent/55 lowercase">
                           {plan.unit}
                         </span>
                       </div>
-
-                      <p className="text-xs text-secondary/65 dark:text-accent/65 mt-2.5 leading-relaxed">
-                        {plan.summary}
-                      </p>
                     </div>
 
-                    {/* Features list */}
-                    <div className="space-y-3 pt-1">
-                      <p className="text-[10px] font-semibold text-secondary/45 dark:text-accent/45 uppercase tracking-wider">
+                    {/* Action CTA Button placed right below price */}
+                    <div className="mt-6">
+                      <a
+                        href={`https://wa.me/8801408185323?text=${encodeURIComponent(plan.waMessage)}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn w-full h-12 rounded-xl font-semibold text-sm flex items-center justify-center transition-all duration-300 shadow-2xs bg-transparent border border-secondary/25 dark:border-stroke-6 hover:border-secondary dark:hover:border-accent text-secondary dark:text-accent hover:bg-secondary/5 dark:hover:bg-accent/5">
+                        <span>{plan.buttonText}</span>
+                      </a>
+                    </div>
+
+                    {/* Summary Note right under button */}
+                    <p className="min-h-[36px] text-xs text-secondary/65 dark:text-accent/65 mt-3 leading-relaxed">
+                      {plan.summary}
+                    </p>
+
+                    {/* Divider */}
+                    <div className="w-full h-px bg-stroke-2 dark:bg-stroke-6 my-6" />
+
+                    {/* Deliverables / Features List */}
+                    <div className="space-y-3">
+                      <p className="text-[11px] font-semibold text-secondary/50 dark:text-accent/50 uppercase tracking-wider">
                         Included deliverables:
                       </p>
                       <ul className="space-y-2.5">
                         {plan.features.map((feature) => (
-                          <li key={feature} className="flex items-start gap-2.5 text-xs text-secondary/75 dark:text-accent/75">
-                            <CheckCircle2 className="size-3.5 text-secondary/50 dark:text-accent/50 shrink-0 mt-0.5" />
+                          <li
+                            key={feature}
+                            className="flex items-start gap-2.5 text-xs text-secondary/80 dark:text-accent/80 font-normal">
+                            <CheckCircle2 className="size-4 text-secondary/60 dark:text-accent/60 shrink-0 mt-0.5" />
                             <span className="leading-snug">{feature}</span>
                           </li>
                         ))}
                       </ul>
                     </div>
                   </div>
-
-                  {/* Bottom Action Button */}
-                  <div className="pt-7">
-                    {plan.isPopular ? (
-                      <a
-                        href={`https://wa.me/8801408185323?text=${encodeURIComponent(plan.waMessage)}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="btn w-full btn-md font-semibold shadow-sm bg-red-600 hover:bg-red-700 text-white border-red-700 flex items-center justify-center gap-2 group">
-                        <span>{plan.buttonText}</span>
-                        <ArrowRight className="size-3.5 group-hover:translate-x-0.5 transition-transform" />
-                      </a>
-                    ) : (
-                      <a
-                        href={`https://wa.me/8801408185323?text=${encodeURIComponent(plan.waMessage)}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="btn w-full btn-md font-medium shadow-xs btn-secondary dark:btn-accent hover:btn-white dark:hover:btn-white-dark flex items-center justify-center gap-2">
-                        <span>{plan.buttonText}</span>
-                      </a>
-                    )}
-                  </div>
-                </div>
+                )}
               </RevealAnimation>
             );
           })}

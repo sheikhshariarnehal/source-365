@@ -11,23 +11,24 @@ export default function CtaSection() {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-red-600/15 blur-[140px] rounded-full pointer-events-none -z-10" />
 
       <div className="main-container relative z-10">
-        <div className="max-w-[860px] mx-auto text-center space-y-6">
+        <div className="max-w-[860px] mx-auto text-center space-y-5">
           <RevealAnimation delay={0.1}>
-            <div className="inline-flex items-center gap-2 rounded-full bg-red-500/20 px-4 py-1.5 text-xs font-semibold text-red-400 border border-red-500/30">
-              <ShieldCheck className="size-4" />
-              <span>Smart Strategy • Stronger Presence • Sustainable Growth</span>
+            <div className="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/10 backdrop-blur-xs px-4.5 py-1.5 text-xs md:text-sm font-normal text-white/90 shadow-2xs">
+              <span>Ready to Scale?</span>
             </div>
           </RevealAnimation>
 
           <RevealAnimation delay={0.2}>
-            <h2 className="text-heading-2 md:text-heading-1 font-bold tracking-tight text-white leading-tight">
-              Let&apos;s Scale Your Business Together!
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[54px] font-bold tracking-tight text-white leading-[1.12]">
+              Let&apos;s Scale Your Business
+              <br />
+              Together
             </h2>
           </RevealAnimation>
 
           <RevealAnimation delay={0.3}>
-            <p className="text-accent/80 text-base md:text-lg max-w-[700px] mx-auto leading-relaxed">
-              Whether you are an established brand aiming to lower your customer acquisition costs or an ambitious business ready to unlock compounding revenue, our dedicated marketing leadership is ready.
+            <p className="text-white/75 text-sm sm:text-base md:text-lg max-w-[640px] mx-auto leading-relaxed pt-1">
+              Partner with dedicated marketing managers who actively protect your ad budget and scale your revenue.
             </p>
           </RevealAnimation>
 

@@ -43,15 +43,17 @@ export default function AchievementsSection() {
   return (
     <section className="py-16 md:py-20">
       <div className="main-container">
-        <div className="text-center max-w-[680px] mx-auto mb-10 space-y-3">
+        <div className="text-center max-w-[760px] mx-auto mb-10 md:mb-12 space-y-4">
           <RevealAnimation delay={0.1}>
-            <div className="inline-flex items-center gap-2 rounded-full border border-red-500/20 bg-red-500/10 px-4 py-1 text-xs font-semibold text-red-600 dark:text-red-400">
-              <span>Verified Track Record</span>
+            <div className="inline-flex items-center justify-center rounded-full border border-stroke-2 dark:border-stroke-6 bg-white/70 dark:bg-background-7/70 backdrop-blur-xs px-4.5 py-1.5 text-xs md:text-sm font-normal text-secondary/80 dark:text-accent/80 shadow-2xs">
+              <span>Proven Track Record</span>
             </div>
           </RevealAnimation>
           <RevealAnimation delay={0.2}>
-            <h2 className="text-heading-4 md:text-heading-3 font-bold text-secondary dark:text-accent">
-              Results that build long-term business equity.
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[50px] font-bold text-secondary dark:text-accent tracking-tight leading-[1.14] max-w-[700px] mx-auto">
+              Results That Build Long-Term
+              <br />
+              Business Equity
             </h2>
           </RevealAnimation>
         </div>
