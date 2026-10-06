@@ -46,8 +46,8 @@ const OurAchievements = ({
               <div className={`${achievement.bgColor} w-fit rounded-full px-7 py-3.5`}>
                 <achievement.icon />
               </div>
-              <h6 className="flex items-center gap-1 text-white">
-                <div className="font-inherit flex items-center text-white">
+              <h6 className="flex items-center gap-1 text-inherit">
+                <div className="font-inherit flex items-center text-inherit">
                   <NumberAnimation
                     number={achievement.number}
                     speed={achievement.speed || 2000}

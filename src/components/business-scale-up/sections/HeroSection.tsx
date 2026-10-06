@@ -62,8 +62,8 @@ export default function HeroSection() {
                   href="https://wa.me/8801408185323?text=Hello%20Source%20365%2C%20I%20want%20to%20scale%20my%20business%20with%20the%20Business%20Scale-UP%20Service"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center rounded-full bg-white dark:bg-background-7 text-secondary dark:text-accent border border-stroke-2 dark:border-stroke-6 px-7 h-12 text-sm font-medium hover:bg-secondary hover:text-white dark:hover:bg-white dark:hover:text-secondary transition-all duration-300 shadow-2xs">
-                  <span>Chat on whatsapp</span>
+                  className="inline-flex items-center justify-center rounded-full bg-white dark:bg-background-7 text-secondary dark:text-accent border border-stroke-2 dark:border-stroke-6 px-7 h-12 text-sm font-medium hover:bg-secondary hover:text-white dark:hover:bg-white dark:hover:text-secondary transition-all duration-300 shadow-2xs hover:-translate-y-0.5 active:scale-95">
+                  <span>Chat on WhatsApp</span>
                 </a>
               </div>
             </RevealAnimation>
@@ -87,7 +87,7 @@ export default function HeroSection() {
           {/* Right Column: Digital Marketing & Data Analysis SVG Illustration */}
           <div className="lg:col-span-6 relative flex items-center justify-center lg:justify-end">
             <RevealAnimation delay={0.2} direction="left" offset={20} className="w-full">
-              <figure className="relative mx-auto lg:ml-auto lg:mr-0 w-full max-w-[480px] lg:max-w-[520px] xl:max-w-[560px] flex items-center justify-center">
+              <figure className="relative mx-auto lg:ml-auto lg:mr-0 w-full max-w-[520px] sm:max-w-[560px] lg:max-w-[600px] xl:max-w-[660px] flex items-center justify-center">
                 <Image
                   src={marketingIllustration}
                   alt="Digital marketing social media and data analysis"

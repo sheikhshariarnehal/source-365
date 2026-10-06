@@ -17,7 +17,7 @@ import { FlickeringGrid } from '@/registry/magicui/flickering-grid';
 
 const Footer = ({ className }: { className?: string }) => {
   return (
-    <footer className={cn('bg-black relative z-0 overflow-hidden text-white', className)}>
+    <footer className={cn('bg-black relative z-0 overflow-hidden text-white rounded-t-2xl sm:rounded-t-3xl', className)}>
       <FlickeringGrid
         className="pointer-events-none absolute inset-0 z-0 size-full"
         squareSize={4}
