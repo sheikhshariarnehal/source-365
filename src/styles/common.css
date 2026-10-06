@@ -440,3 +440,30 @@ Common Styles all over the sites
 .slider-handle.no-transition .handle-circle {
   transition: none !important;
 }
+
+/* ========== HERO FLOATING ANIMATIONS ========== */
+@keyframes heroFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes heroFloatReverse {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(8px);
+  }
+}
+
+.animate-hero-float {
+  animation: heroFloat 5.5s ease-in-out infinite;
+}
+
+.animate-hero-float-reverse {
+  animation: heroFloatReverse 6.5s ease-in-out infinite;
+}

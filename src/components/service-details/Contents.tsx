@@ -2,6 +2,7 @@ import { IService } from '@/interface';
 import getMarkDownContent from '@/utils/getMarkDownContent';
 import ReactMarkdown from 'react-markdown';
 import rehypeSlug from 'rehype-slug';
+import { ButtonWithIcon } from '@/components/ui/button/ButtonWithIcon';
 import RevealAnimation from '../animation/RevealAnimation';
 import TableOfContent from './TableOfContent';
 import UserReview from './UserReview';
@@ -24,6 +25,39 @@ const Contents = ({ slug }: { slug: string }) => {
                         <table {...props} />
                       </div>
                     ),
+                    p: ({ children, node, ...props }) => {
+                      const hasShowcaseButton = Array.isArray(node?.children) && node.children.some(
+                        (child: any) =>
+                          child &&
+                          child.type === 'element' &&
+                          child.tagName === 'a' &&
+                          typeof child.properties?.href === 'string' &&
+                          child.properties.href.startsWith('/showcase'),
+                      );
+
+                      if (hasShowcaseButton) {
+                        return <div className="pt-2 pb-6">{children}</div>;
+                      }
+                      return <p {...props}>{children}</p>;
+                    },
+                    a: ({ href, children, ...props }) => {
+                      if (href?.startsWith('/showcase')) {
+                        return (
+                          <ButtonWithIcon
+                            href={href}
+                            label={typeof children === 'string' ? children : undefined}
+                            className="h-11 ps-6 pe-14 text-xs sm:text-sm font-semibold shadow-xs"
+                            iconClassName="w-8 h-8 group-hover:right-[calc(100%-38px)]">
+                            {children}
+                          </ButtonWithIcon>
+                        );
+                      }
+                      return (
+                        <a href={href} {...props} className="text-primary-600 underline hover:text-primary-700">
+                          {children}
+                        </a>
+                      );
+                    },
                   }}>
                   {service.content}
                 </ReactMarkdown>

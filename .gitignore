@@ -44,3 +44,7 @@ next-env.d.ts
 # mcp
 .playwright-mcp
 
+# screenshots and temp archives
+/*.png
+/*.zip
+

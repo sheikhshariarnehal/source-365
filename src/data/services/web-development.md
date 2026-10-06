@@ -28,6 +28,8 @@ WordPress powers over 40% of the web. We build custom, high-converting WordPress
 - **Local & Global Payment Gateways**: Seamless integration with bKash, Nagad, Rocket, Upay, SSLCommerz, Stripe, and PayPal.
 - **Speed Optimization & Security Hardening**: Advanced caching, database indexing, malware protection, and SSL configuration for safe, snappy browsing.
 
+[View WordPress Live Demos](/showcase?category=wordpress)
+
 ## 2. Modern Next.js & React Websites
 
 When performance, speed, and modern user interactions are critical, our Next.js and React web solutions offer an unmatched competitive advantage.
@@ -38,6 +40,8 @@ When performance, speed, and modern user interactions are critical, our Next.js 
 - **Core Web Vitals Optimization**: Engineered to achieve 95–100 scores on Google Lighthouse for performance, accessibility, best practices, and SEO.
 - **Type-Safe, Scalable Code**: Built with TypeScript and modern component patterns for maintainability and bug-free long-term evolution.
 
+[View Next.js Live Demos](/showcase?category=nextjs)
+
 ## 3. Full-Stack MERN Web Applications & Dashboards
 
 For custom business logic, software-as-a-service (SaaS) platforms, internal management portals, and data-heavy applications, our full-stack MERN engineering team delivers robust solutions.
@@ -47,6 +51,8 @@ For custom business logic, software-as-a-service (SaaS) platforms, internal mana
 - **Secure Authentication & RBAC**: Enterprise-grade security featuring JWT, OAuth (Google/GitHub), multi-factor authentication, and Role-Based Access Control.
 - **RESTful & GraphQL API Development**: High-throughput, documented API endpoints with scalable microservice and monolithic architectures.
 - **Real-Time Features & Database Optimization**: WebSockets/Socket.io for live notifications, instant messaging, and optimized MongoDB aggregation pipelines.
+
+[View MERN Live Demos](/showcase?category=mern)
 
 ## Which Solution Should You Choose?
 

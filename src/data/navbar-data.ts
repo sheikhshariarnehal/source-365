@@ -6,7 +6,7 @@ export const mobileMenuData: MobileMenuGroup[] = [
     title: 'IT Services',
     submenu: [
       { id: 'boosting', label: 'Facebook Boosting', href: '/services#boosting' },
-      { id: 'growth-prog', label: 'Growth Program', href: '/growth-program' },
+      { id: 'business-scale-up', label: 'Business Scale-UP', href: '/business-scale-up' },
       { id: 'web-dev', label: 'Web Development', href: '/services#web-development' },
       { id: 'app-dev', label: 'App Development', href: '/services#app-development' },
       { id: 'seo', label: 'Search Engine Optimization (SEO)', href: '/services#seo' },
@@ -17,12 +17,12 @@ export const mobileMenuData: MobileMenuGroup[] = [
     ],
   },
   {
-    id: 'growth-program-nav',
-    title: 'Growth Program',
+    id: 'business-scale-up-nav',
+    title: 'Business Scale-UP',
     submenu: [
-      { id: 'growth-overview', label: 'Program Overview & Benefits', href: '/growth-program' },
-      { id: 'account-manager', label: 'Key Account Manager', href: '/growth-program#account-manager' },
-      { id: 'reporting', label: '7/15/30-Day Reporting', href: '/growth-program#reporting' },
+      { id: 'scale-up-overview', label: 'Service Overview & Benefits', href: '/business-scale-up' },
+      { id: 'scale-up-included', label: "What's Included", href: '/business-scale-up#whats-included' },
+      { id: 'scale-up-pricing', label: 'Pricing Plans', href: '/business-scale-up#pricing-plans' },
     ],
   },
   {

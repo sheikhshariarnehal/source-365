@@ -25,8 +25,8 @@ const servicesData: ServiceCard[] = [
     id: 2,
     icon: 'ns-shape-25',
     iconType: 'shape',
-    title: 'End-to-End Growth Program',
-    description: 'Structured A to Z growth blueprint: 3-day content calendar, competitor audits, sales funnels, and a dedicated Key Account Manager.',
+    title: 'Business Scale-UP Service',
+    description: 'Smart strategy, stronger presence, sustainable growth: content calendar, ads optimization, and dedicated Marketing Manager.',
   },
   {
     id: 3,

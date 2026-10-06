@@ -45,7 +45,7 @@ const ContactInfo = () => {
     fullname: '',
     number: '',
     email: '',
-    service: 'Growth Program',
+    service: 'Business Scale-UP',
     message: '',
   });
 
@@ -75,7 +75,7 @@ const ContactInfo = () => {
             </RevealAnimation>
             <RevealAnimation delay={0.3}>
               <p className="text-secondary/70 dark:text-accent/70 text-base leading-relaxed">
-                Have a project in mind, interested in our Growth Program, or want to discuss a business opportunity? Contact our team today for a tailored consultation.
+                Have a project in mind, interested in our Business Scale-UP service, or want to discuss a business opportunity? Contact our team today for a tailored consultation.
               </p>
             </RevealAnimation>
           </div>
@@ -196,7 +196,7 @@ const ContactInfo = () => {
                       value={formData.service}
                       onChange={(e) => setFormData({ ...formData, service: e.target.value })}
                       className="dark:border-stroke-7 dark:bg-background-7 border-stroke-3 bg-background-1 text-sm text-secondary dark:text-accent h-[48px] w-full rounded-xl border px-4 focus:outline-none focus:border-primary-500">
-                      <option value="Growth Program">End-to-End Growth Program</option>
+                      <option value="Business Scale-UP">Business Scale-UP Service</option>
                       <option value="Facebook Boosting">Facebook Post Boosting Service</option>
                       <option value="Web Development">Web Development</option>
                       <option value="App Development">Mobile App Development</option>

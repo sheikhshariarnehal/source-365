@@ -64,7 +64,7 @@ const servicesList: ServiceItem[] = [
       'High-converting organic funnels',
       'Dedicated Key Account Manager',
     ],
-    link: '/growth-program',
+    link: '/business-scale-up',
     image: '/images/services/brand-strategy.png',
   },
   {

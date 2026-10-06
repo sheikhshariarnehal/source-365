@@ -83,9 +83,9 @@ const Navbar = () => {
                 {/* Direct Links */}
                 <li className="relative cursor-pointer py-2.5">
                   <Link
-                    href="/growth-program"
+                    href="/business-scale-up"
                     className="hover:border-stroke-2 dark:hover:border-stroke-7 text-tagline-1 text-secondary/60 hover:text-secondary dark:text-accent/60 dark:hover:text-accent flex items-center gap-1 rounded-full border border-transparent px-4 py-2 font-normal transition-all duration-200">
-                    <span>Growth Program</span>
+                    <span>Business Scale-UP</span>
                   </Link>
                 </li>
 

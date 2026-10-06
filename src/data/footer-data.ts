@@ -16,8 +16,8 @@ export const footerLinks: FooterData[] = [
   {
     title: 'Growth & Business',
     links: [
-      { label: 'Growth Program', href: '/growth-program' },
-      { label: 'Key Account Management', href: '/growth-program#account-manager' },
+      { label: 'Business Scale-UP', href: '/business-scale-up' },
+      { label: 'Scale-UP Pricing Plans', href: '/business-scale-up#pricing-plans' },
       { label: 'Business Partnerships', href: '/business#partnerships' },
       { label: 'Digital Products', href: '/business#digital-products' },
       { label: 'Subscriptions Sales', href: '/business#subscriptions' },

@@ -144,11 +144,21 @@ const RevealAnimation = ({
     return null;
   }
 
-  const isElement =
-    React.isValidElement(children) ||
-    (typeof children === 'object' && children !== null && 'type' in children && 'props' in (children as object));
+  // Filter out whitespace strings and nullish values
+  const validChildren = React.Children.toArray(children).filter((c) => {
+    if (c === null || c === undefined || typeof c === 'boolean') return false;
+    if (typeof c === 'string' && c.trim() === '') return false;
+    return true;
+  });
 
-  if (!isElement) {
+  const child = validChildren.length === 1 ? validChildren[0] : null;
+
+  const isElement =
+    child !== null &&
+    (React.isValidElement(child) ||
+      (typeof child === 'object' && child !== null && 'type' in child && 'props' in (child as object)));
+
+  if (!isElement || !child) {
     return (
       <div ref={elementRef as unknown as React.Ref<HTMLDivElement>} className={className} data-ns-animate="true">
         {children}
@@ -157,9 +167,9 @@ const RevealAnimation = ({
   }
 
   // Clone the child element and add the ref, className, and data-ns-animate attribute
-  return cloneElement(children as ReactElement<Record<string, unknown>>, {
+  return cloneElement(child as ReactElement<Record<string, unknown>>, {
     ref: elementRef,
-    className: cn((children as ReactElement<{ className?: string }>)?.props?.className, className),
+    className: cn((child as ReactElement<{ className?: string }>)?.props?.className, className),
     'data-ns-animate': true,
   });
 };
