@@ -2,7 +2,6 @@
 
 import RevealAnimation from '@/components/animation/RevealAnimation';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import { HelpCircle } from 'lucide-react';
 
 const faqs = [
   {
@@ -39,42 +38,47 @@ const faqs = [
 
 export default function FaqSection() {
   return (
-    <section className="py-20 md:py-28 bg-background-2 dark:bg-background-8 border-t border-stroke-2 dark:border-stroke-6" id="faq">
+    <section className="py-20 md:py-28" id="faq">
       <div className="main-container">
-        {/* Impeccable Typeset Header */}
-        <div className="text-center max-w-[760px] mx-auto mb-10 md:mb-12 space-y-4">
+        {/* Header */}
+        <div className="text-center max-w-[720px] mx-auto mb-12 md:mb-14 space-y-3.5">
           <RevealAnimation delay={0.1}>
-            <div className="inline-flex items-center justify-center rounded-full border border-stroke-2 dark:border-stroke-6 bg-white/70 dark:bg-background-7/70 backdrop-blur-xs px-4.5 py-1.5 text-xs md:text-sm font-normal text-secondary/80 dark:text-accent/80 shadow-2xs">
+            <div className="inline-flex items-center justify-center rounded-full border border-stroke-2 dark:border-stroke-6 bg-white/70 dark:bg-background-7/70 backdrop-blur-xs px-4 py-1.5 text-xs font-normal text-secondary/75 dark:text-accent/75 shadow-2xs">
               <span>Frequently Asked Questions</span>
             </div>
           </RevealAnimation>
           <RevealAnimation delay={0.2}>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[50px] font-bold text-secondary dark:text-accent tracking-tight leading-[1.14] max-w-[680px] mx-auto">
-              Everything You Need to Know
-              <br />
-              Before Scaling
+            <h2 className="text-3xl sm:text-4xl md:text-[46px] font-bold text-secondary dark:text-accent tracking-tight leading-[1.15] max-w-[640px] mx-auto text-balance">
+              Everything You Need to Know Before Scaling
             </h2>
+          </RevealAnimation>
+          <RevealAnimation delay={0.25}>
+            <p className="text-sm md:text-base text-secondary/60 dark:text-accent/60 max-w-[520px] mx-auto leading-relaxed">
+              Transparent answers regarding management, ad budget, and our scale protocols.
+            </p>
           </RevealAnimation>
         </div>
 
         {/* Accordion list */}
         <Accordion
-          className="mx-auto w-full max-w-[880px] space-y-4"
+          className="mx-auto w-full max-w-[800px] space-y-3"
           defaultValue="1"
           enableScrollAnimation={true}
-          animationDelay={0.08}>
+          animationDelay={0.05}>
           {faqs.map((faq) => (
             <AccordionItem
               key={faq.id}
               value={faq.id}
-              className="border border-stroke-2 dark:border-stroke-6 bg-white dark:bg-background-7 rounded-2xl px-6 transition-all duration-300 shadow-sm">
+              className="border border-stroke-2 dark:border-stroke-6 bg-white dark:bg-background-7 rounded-2xl px-6 sm:px-7 transition-all duration-300 shadow-2xs hover:border-secondary/20 dark:hover:border-accent/20">
               <AccordionTrigger
                 value={faq.id}
-                className="w-full py-5 text-left flex items-center justify-between font-bold text-base md:text-lg text-secondary dark:text-accent hover:text-red-600 dark:hover:text-red-400 transition-colors"
-                titleClassName="pr-4">
+                className="w-full py-5 text-left flex items-center justify-between font-semibold text-base sm:text-[17px] text-secondary dark:text-accent hover:text-secondary/80 dark:hover:text-accent/80 transition-colors cursor-pointer"
+                titleClassName="pr-5 tracking-tight leading-snug">
                 {faq.question}
               </AccordionTrigger>
-              <AccordionContent value={faq.id} className="text-sm md:text-base text-secondary/75 dark:text-accent/75 leading-relaxed pb-6">
+              <AccordionContent
+                value={faq.id}
+                className="text-sm sm:text-[15px] text-secondary/70 dark:text-accent/70 leading-relaxed pb-6 pt-0">
                 {faq.answer}
               </AccordionContent>
             </AccordionItem>
