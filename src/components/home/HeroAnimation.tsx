@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import lottie, { AnimationItem } from 'lottie-web';
 import heroAnimationData from '@public/animations/hero.json';
-import { Send, CheckCircle2 } from 'lucide-react';
+import { Mail, Send, CheckCircle2 } from 'lucide-react';
 
 const HeroAnimation = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -76,19 +76,22 @@ const HeroAnimation = () => {
         aria-label="A to Z Digital Solutions Animation"
       />
 
-      {/* Email Contact Form - Minimal Border Radius & Subtle Elevation */}
-      <div className="w-full max-w-[420px] sm:max-w-[460px] md:max-w-[480px] mt-1 sm:mt-1.5 px-2 sm:px-0">
+      {/* Polished Email Contact Form - Minimal Border Radius Style */}
+      <div className="w-full max-w-[420px] sm:max-w-[460px] md:max-w-[480px] mt-1 sm:mt-2 px-2 sm:px-0">
         <form
           onSubmit={handleSubmit}
-          className="relative flex items-center rounded-lg border border-slate-100 dark:border-white/5 bg-white dark:bg-slate-900/95 p-1.5 shadow-xl shadow-slate-900/5 dark:shadow-black/30 transition-all focus-within:border-blue-400/40 focus-within:ring-2 focus-within:ring-blue-500/10"
+          className="group/form relative flex items-center rounded-lg border border-stroke-1 dark:border-white/10 bg-white dark:bg-[#13171E] p-1.5 shadow-[0_10px_30px_-5px_rgba(0,0,0,0.06),0_4px_12px_-2px_rgba(0,0,0,0.03)] dark:shadow-[0_10px_35px_-5px_rgba(0,0,0,0.5)] transition-all duration-300 hover:border-stroke-1/90 dark:hover:border-white/20 hover:shadow-[0_14px_35px_-5px_rgba(0,0,0,0.08)] focus-within:border-secondary/40 dark:focus-within:border-white/40 focus-within:ring-2 focus-within:ring-secondary/5 dark:focus-within:ring-white/5"
         >
           {submitted ? (
-            <div className="flex w-full items-center justify-center gap-2 py-2 text-sm font-medium text-emerald-600 dark:text-emerald-400">
-              <CheckCircle2 className="size-4.5 shrink-0" />
+            <div className="flex w-full items-center justify-center gap-2.5 py-2 px-4 text-sm font-medium text-emerald-600 dark:text-emerald-400 animate-in fade-in duration-300">
+              <CheckCircle2 className="size-5 shrink-0" />
               <span>Thanks! We&apos;ll be in touch shortly.</span>
             </div>
           ) : (
             <>
+              <div className="flex items-center pl-2 sm:pl-2.5 text-secondary/50 dark:text-accent/50 group-focus-within/form:text-secondary dark:group-focus-within/form:text-accent transition-colors duration-200">
+                <Mail className="size-4.5 sm:size-5 shrink-0 stroke-[1.75]" />
+              </div>
               <input
                 type="email"
                 value={email}
@@ -96,18 +99,18 @@ const HeroAnimation = () => {
                 placeholder="Enter your email"
                 required
                 aria-label="Enter your email address"
-                className="w-full bg-transparent px-3.5 sm:px-4 py-2 text-sm sm:text-base text-slate-800 dark:text-white placeholder:text-[#94A3B8] focus:outline-none"
+                className="w-full bg-transparent px-2.5 sm:px-3 py-1.5 text-sm sm:text-base text-secondary dark:text-accent placeholder:text-secondary/40 dark:placeholder:text-accent/40 font-normal focus:outline-none"
               />
               <button
                 type="submit"
                 disabled={loading}
                 aria-label="Send email"
-                className="flex size-9 sm:size-10 shrink-0 items-center justify-center rounded-md bg-[#2563EB] hover:bg-[#1D4ED8] text-white transition-all hover:scale-105 active:scale-95 shadow-md shadow-blue-500/30 disabled:opacity-60 cursor-pointer"
+                className="group/btn flex size-9 sm:size-10 shrink-0 items-center justify-center rounded-md bg-secondary text-white hover:bg-black dark:bg-white dark:text-secondary dark:hover:bg-accent transition-all duration-300 hover:scale-[1.04] active:scale-[0.96] shadow-sm disabled:opacity-60 cursor-pointer"
               >
                 {loading ? (
-                  <span className="size-3.5 animate-spin rounded-full border-2 border-white border-t-transparent" />
+                  <span className="size-4 animate-spin rounded-full border-2 border-current border-t-transparent" />
                 ) : (
-                  <Send className="size-4 -translate-x-0.5" />
+                  <Send className="size-4 -translate-x-0.5 group-hover/btn:translate-x-0 group-hover/btn:-translate-y-0.5 transition-transform duration-300" />
                 )}
               </button>
             </>

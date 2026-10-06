@@ -467,3 +467,25 @@ Common Styles all over the sites
 .animate-hero-float-reverse {
   animation: heroFloatReverse 6.5s ease-in-out infinite;
 }
+
+/* ========== INPUT AUTOFILL STYLING ========== */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 1000px white inset !important;
+  -webkit-text-fill-color: #1a1a1c !important;
+  caret-color: #1a1a1c !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+.dark input:-webkit-autofill,
+.dark input:-webkit-autofill:hover, 
+.dark input:-webkit-autofill:focus, 
+.dark input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 1000px #13171e inset !important;
+  -webkit-text-fill-color: #fcfcfc !important;
+  caret-color: #fcfcfc !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
